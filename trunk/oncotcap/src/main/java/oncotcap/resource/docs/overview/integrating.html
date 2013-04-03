@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><!-- InstanceBegin template="/Templates/OncoTCap%20Overview%20Template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Integration cancer knowledge and modeling</title>
+<!-- InstanceEndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- InstanceBeginEditable name="head" -->
+
+<!-- InstanceEndEditable -->
+<link href="../OncoTCap%20Styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#cFcFCC">
+
+<!-- InstanceBeginEditable name="OverviewHeader" --><h1>Integrating cancer knowledge and modeling</h1>
+<!-- InstanceEndEditable --> 
+
+<hr>
+<!-- InstanceBeginEditable name="OverviewBody" -->
+<p><img src="../../image/OncoTCap%20tri-flow%20controller.jpg" width="698" height="330"> 
+</p>
+<p><strong><font size="+3">A</font></strong> <em><strong>Domain experts</strong></em>: 
+  The knowledge acquisition work flow (top-most spur in Fig 1) supports finding 
+  and recording &#8220;InformationSources&#8221;, acquiring and assessing &#8220;KnowledgeNuggets&#8221; 
+  from the Information Sources, attaching free-text &#8220;Interpretation&#8221;s 
+  to these Knowledge Nuggets, and constructing free-text Edicts which convert 
+  an Interpretation, which is declarative in nature, into imperatives suitable 
+  for building models. (There is an important discipline to converting what appears 
+  to be a hypothesis into an imperative form, to be sure that the hypothesis is 
+  really saying something.).<br>
+  <strong><font size="+3">B</font></strong> <strong><em>model-representers</em></strong>: 
+  The code-mapping work flow (lower left) begins with the Edict. It involves searching 
+  a catalog of &#8220;StatementTemplates&#8221; each of which represents a simple 
+  or composite idea as a sentence or paragraph with &#8220;blanks&#8221; or Parameters. 
+  Then one &#8220;fills in the blanks&#8221; of the selected Statement Template 
+  with parameter editors, to create a Statement Bundle (which bundles a Statement 
+  Template with a Value Map). Alternatively, a new Statement Template is constructed 
+  using a powerful recursive idea-packaging methodology. Ultimately each Statement 
+  Template is tied to a set of agent-based implementation descriptions called 
+  Code Bundles, which are computer-language-independent. <br>
+  <strong><font size="+3">C</font></strong> <em><strong>application-builders</strong></em>: 
+  The application building work flow (lower right) involves successively grouping 
+  selected Edicts to create &#8220;SubModels&#8221;, &#8220;SubModelGroups&#8221;, 
+  and finally &#8220;ModelControllers&#8221;. A ModelController contains specifications 
+  for auto-generating a specific modeling application, such as validation suite 
+  testbeds, treatment optimization routines, and patient simulators for professional 
+  training. From a selected ModelController, a Launch button automatically generates 
+  and runs a new application program. In the application program, once the user 
+  makes final model selections, a Run button causes a model to be computed. That 
+  is, a pre-compiler writes Java source files, which are compiled, and finally 
+  the simulation or calculation is begun.</p>
+<p><br>
+  The reason for the three work flows is that different backgrounds, skills and 
+  motivations are required for the work of domain experts (A), model-representers 
+  (B), and application-builders (C). (Although this description implies a directionality 
+  to each work flow A, B, and C, in fact one can work beginning anywhere in the 
+  diagram and proceeding in any direction.)</p>
+<p> The design carefully respects how researchers work and the ranges of skill 
+  sets they come with. OncoTCap supports separate but intersecting work processes, 
+  dividing "labor" by expertise type and interests.</p>
+<p> </p>
+<ul>
+  <li>Gathering and managing knowledge, </li>
+  <li>Expressing hypotheses and experimental designs as model-driving "edicts", 
+    in biomedical language, </li>
+  <li>Mapping edicts to abstract representations, using a catalog of model-driving 
+    statement templates which follow the normal use of scientific language, </li>
+  <li>Creating the working model code behind each statement template, </li>
+  <li>Grouping edicts to automatically generate and configure diverse applications. 
+  </li>
+  <li>Finally, from each configuration one can launch a general application program 
+    that is automatically configured and specialized for a particular model. When 
+    the scientist using this program has made any final "tweaks" to the model, 
+    a click of a "Run" button causes the automatic writing, compilation, and execution 
+    of a computer program to run the simulation. </li>
+</ul>
+<p>&nbsp; </p>
+<!-- InstanceEndEditable --> 
+
+</body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><!-- InstanceBegin template="/Templates/OncoTCap Overview Template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Untitled Document</title>
+<!-- InstanceEndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- InstanceBeginEditable name="head" -->
+
+<!-- InstanceEndEditable -->
+<link href="../../OncoTCap%20Styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#cFcFCC">
+
+<!-- InstanceBeginEditable name="OverviewHeader" -->
+<h1>Demo of upstreaming</h1>
+<!-- InstanceEndEditable --> 
+
+<hr>
+<!-- InstanceBeginEditable name="OverviewBody" --> 
+<p>The upstreaming principle is illustrated by the ModelController <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font face="Arial, Helvetica, sans-serif">&nbsp;&quot;DEMO: 
+  two-layer upstreaming&quot;. </font></strong></p>
+<p>From the Browser window, set the root node to ModelController, drag &quot;DEMO: 
+  two-layer upstreaming&quot; into the filter, turn on the filter, and turn on 
+  the leafs for ST, SB, and CB.</p>
+<p>Notice that the parameter theName has been assigned the string value &quot;<span class="parameterLink">initialStemCellCount</span>&quot;. 
+  This value propagates down into the first supporting SB,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial, Helvetica, sans-serif">&nbsp;&nbsp;<strong>&nbsp;(Patient) 
+  Print the upstreamed parameter <span class="parameterLink"><font color="#3300CC">`theName`</font></span></strong></font></p>
+<p>The backquotes around <span class="parameterLink"><font face="Arial, Helvetica, sans-serif"><strong><font color="#3300CC">theName</font></strong></font></span> 
+  indicate that the value of the parameter <span class="parameterLink">P1</span> 
+  will be obtained by looking &quot;upstream&quot; to the value assigned above 
+  to <span class="parameterLink">theName</span>, namely &quot;initialStemCellCount&quot;. 
+  Finally, printing occurs, using the value assigned to <span class="parameterLink">P1</span> 
+  in the print statement both for the variable name and for the actual value.</p>
+<p>At the current time, StatementTemplates which provide a generic service, such 
+  as printing a variable value (in this demo), must be tied to a particular Process 
+  (in this case, Patient). Then new StatementTemplate versions would be required 
+  for each Process. This is inconvenient. To eliminate this, we will be adapting 
+  the upstream/backquote mechanism for use in the CodeBundle's Process textbox. 
+</p>
+<p>The result of the print statements can be see in the CONSOLE window (the first 
+  one that appears when OncoTCap is started).</p>
+<p>Another interesting example of upstreaming and parameter 
+  re-use can be found in the ModelController demo for Apoptosis. The model for 
+  p53 mutation presented there uses an allele-specific mutation rate repeatedly, 
+  for three different genotypes. Specifically, examine the StatementBundle:</p>
+<p> <font face="Arial, Helvetica, sans-serif">For gene <span class="parameterLink">p53</span> 
+  , the WT allele can mutate to a <span class="parameterLink">MUT</span> allele 
+  with mutation rate <span class="parameterLink">1e-4</span> . </font><br>
+  <br>
+</p>
+<!-- InstanceEndEditable --> 
+</body>
+<!-- InstanceEnd --></html>

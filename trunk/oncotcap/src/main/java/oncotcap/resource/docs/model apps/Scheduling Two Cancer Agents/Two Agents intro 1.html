@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><!-- InstanceBegin template="/Templates/OncoTCap Overview Template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Scheduling Two Agents (Intro 1)</title>
+<!-- InstanceEndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- InstanceBeginEditable name="head" -->
+
+<!-- InstanceEndEditable -->
+<link href="../../OncoTCap%20Styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#cFcFCC">
+<!-- InstanceBeginEditable name="OverviewHeader" -->
+<h1>Scheduling Two Agents: The Goldie-Coldman Model and the Worst Drug Rule</h1>
+<!-- InstanceEndEditable --> 
+<hr>
+<!-- InstanceBeginEditable name="OverviewBody" --> 
+<h2>Background</h2>
+<p>Jim Goldie and Andy Coldman proposed a branching process model for the following 
+  situation: </p>
+<ul>
+  <li>Two anti-cancer agents (A and B, say).</li>
+  <li>Four types of cancer cells: <br>
+    (S=sensitive to both agents, RA=resistant only to A, RB=resistant only to 
+    B, RAB=resistant to both)</li>
+  <li>The two agents are &quot;symmetric&quot;: <br>
+    A and B have equal potency on the cells which are sensitive to them, the corresponding 
+    mutation rates to resistance are the same, and so on. </li>
+  <li>Mutation processes can change S cells to RA or RB cells, and RA or RB cells 
+    to RAB cells.</li>
+</ul>
+<h2>Suggestions for exploring this model</h2>
+<p> <em>(The best way to explore these issues is with <a href="http://www.oncotcap.pitt.edu" title="OncoTCap Version 2">OncoTCap 
+  Version 2</a>, which provides exact calculations of the probability of zero 
+  cells after treatment, and integrates these exact calculations with stochastic 
+  simulation. See the next section below.)</em></p>
+<p>First, run the model as provided. The parameters are &quot;symmetric&quot;; 
+  the two drugs A and B have equal potency on the cells which are sensitive to 
+  them, the corresponding mutation rates to resistance are the same, and so on. 
+  The alternating schedule provides the best chance of removing all the cancer 
+  cells. Set up a sequential schedule, e.g <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  A A A A A A B B B B B B.<br>
+  There will be cases in which the sequential schedule fails to eliminate cells 
+  because cells resistant to A grow out unchecked.<br>
+  Compare this with an alternating schedule<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A 
+  B A B A B A B A B A B.<br>
+  In this case, both RA and RB sub-populations are controlled, and in some cases 
+  eliminated.<br>
+  <em>(In Version 2, this comparison is easier to do, since a simulation can be 
+  re-started with the same random number &quot;seed&quot; but a different treatment 
+  schedule. Unlike in real life, one gets to take both forks of the road and see 
+  where each goes. In time, this and other features will be migrated to the new 
+  Version. ) </em></p>
+<p>Second, change the cell kill parameters so that agent A become much more potent 
+  (logkill = 2) and B much less potent (logkill = 1/2) . Again, begin with the 
+  sequential schedule. Starting with the &quot;best drug&quot; A may seem entirely 
+  reasonable. Observing a number of simulations, you will find this schedule to 
+  be entirely unsuccessful. Instead try starting with the &quot;worst drug&quot; 
+  B:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B 
+  B B B B B A A A A A A.</p>
+<h2>Further information about the Goldie-Coldman model and the Worst Drug Rule</h2>
+<p>Principles discovered using the OncoTCap Version 2 <em>&quot;N</em>=&infin; 
+  &nbsp;engine (exact calculation) can be viewed to operate in specific patient 
+  histories to gain better insight. For example, consider the two-drug scenario. 
+  From the exact solution, the probability of killing all tumor cells is calculated 
+  for various treatment strategies: <br>
+</p>
+<p><img src="whiskers.png" width="811" height="603"> </p>
+<p><strong>Figure 1: OncoTCap 2, probabilities of killing all cancer cells for 
+  16 treatment schedules<br>
+  </strong></p>
+<p>Here the cure probability show that, although &#8220;a&#8221; is twice as potent 
+  as &#8220;b&#8221;, the best schedules favor either &#8220;b&#8221; early (right 
+  side of middle row) or more total &#8220;b&#8221; (bottom of left side). To 
+  understand this, it helps to interact with a stochastic simulation. In the following 
+  OncoTCap 2 screen shot, the dynamics of tumor heterogeneity and selection can 
+  be seen.</p>
+<p> <img src="Tcap2-Output.png" width="920" height="601"><br>
+  <strong>Figure 2: OncoTCap 2, stochastic simulation</strong></p>
+<p>Here dragging the fourth treatment from &#8220;Better Agent&#8221; to &#8220;Worse 
+  Agent&#8221; leads to a cure, and the graphic makes it obvious why: the fourth 
+  &#8220;Better Agent&#8221; does not kill the cells which will shortly give rise 
+  to the doubly resistant subpopulation.<br>
+  The &#8220;worst drug rule&#8221; principle continues to be discussed in regard 
+  to lung cancer. However, to apply this principle directly requires good evidence 
+  for the basic premise, that drug resistance stems from somatic mutation, and 
+  some confidence that some critical biology has not been omitted.<br>
+  <br>
+  Version 2 is limited by its highly structured representation of the biology 
+  and by the absence of support for model-building for particular settings like 
+  treatment of advance non-small cell lung cancer or breast cancer.<br>
+</p>
+<p>&nbsp;</p>
+<!-- InstanceEndEditable --> 
+</body>
+<!-- InstanceEnd --></html>

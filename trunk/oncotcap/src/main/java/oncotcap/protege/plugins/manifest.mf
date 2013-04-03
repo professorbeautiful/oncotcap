@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Created-By: 1.3.0 (Sun Microsystems Inc.)
+
+Name: oncotcap.plugins.PubmedURLWidget.class
+Slot-Widget: True
+
+Name: oncotcap/widgets/OInstanceTableWidget.class
+Slot-Widget: True
+
+Name: oncotcap/widgets/OInstanceListWidget.class
+Default-Widget-For-Cardinality: Multiple
+Slot-Widget: True
+Default-Widget-For-Type: Instance
+Default-Widget: True
+
+Name: oncotcap/widgets/OInstanceFieldWidget.class
+Default-Widget-For-Cardinality: Single
+Slot-Widget: True
+Default-Widget-For-Type: Instance
+Default-Widget: True
+

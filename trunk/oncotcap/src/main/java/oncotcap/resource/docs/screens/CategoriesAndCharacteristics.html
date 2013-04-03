@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><!-- InstanceBegin template="/Templates/OncoTCap%20Overview%20Template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Untitled Document</title>
+<!-- InstanceEndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- InstanceBeginEditable name="head" -->
+
+<link href="../OncoTCap%20Styles.css" rel="stylesheet" type="text/css">
+<!-- InstanceEndEditable -->
+<link href="../OncoTCap%20Styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#cFcFCC">
+
+<!-- InstanceBeginEditable name="OverviewHeader" -->
+<h1>Parameters involving Categories and Characteristics</h1>
+<!-- InstanceEndEditable --> 
+
+<hr>
+<!-- InstanceBeginEditable name="OverviewBody" --> 
+<h2>Categories</h2>
+<p>A Category is a Keyword chosen from a sub-tree of the Keyword tree.<br>
+  A Category parameter is configured by naming it and providing the root node 
+  of the sub-tree from which the value should be chosen. <br>
+  A Category, then, corresponds roughly to a Concept in the NCI MetaThesaurus.</p>
+<p><em>Example</em>:<br>
+  In the Statement Template </p>
+<pre>&quot;Cells of type <span class="parameterLink">cell-type</span> respond to <span class="parameterLink">agent</span> by setting the <span class="parameterLink">mechanism</span> to <span class="parameterLink">new state</span>&quot;.</pre>
+<p> the parameter <span class="parameterLink">cell-type</span> is a Category parameter. 
+  Its &quot;parameter creation editor&quot; allows one to set the name, here <span class="parameterLink">cell-type</span>, 
+  and to set the root node to the Keyword &quot;Cell type&quot;.</p>
+<p> When this StatementTemplate is used in a Statement Bundle, and the Statement 
+  Bundle user clicks on the hypertext-style parameter name to open its &quot;parameter 
+  value editor&quot;, the parameter's value can be assigned to any Keyword that 
+  is in the subtree of the Keyword &quot;Cell type&quot; node. Then, just as with 
+  all parameters, the hypertext parameter name is replaced by the selected value. 
+  For example the statemenet Bundle may end up looking like this:</p>
+<pre> &quot;Cells of type <span class="parameterLink">cancer cell</span> respond to <span class="parameterLink">vincristine</span> by setting the <span class="parameterLink">efflux pump mechanism</span> to <span class="parameterLink">on</span>.&quot;</pre>
+<p>&nbsp;</p>
+<h2>Characteristics</h2>
+<p>A Characteristic is a parameter whose allowable values are taken from a small 
+  set.<br>
+  A Characteristic corresponds roughly to a &quot;common data element&quot; (CDE) 
+  which is denumerable, i.e. an Enumeration.<br>
+  The allowable values are called &quot;levels&quot;. They are stored in &quot;level 
+  lists&quot;.<br>
+  Each level list is connected to a Keyword in the Keyword tree.</p>
+<p>As with a Category parameter, an be declared to be </p>
+<p>&nbsp;</p>
+<p>parameter names to change: </p>
+<p>two-level parameter --&gt; level pair<br>
+  characteristic picker --&gt; single level</p>
+<p></p>
+<p>What is the caBIG equivalent of &#8220;level&#8221;??<br>
+  characteristic = denumerable <br>
+  characteristic = enumeration = enum</p>
+<p>level list = a set of values attached to a class of enumerations, <br>
+  and shared by members of that class</p>
+<p>value</p>
+<p></p>
+<!-- InstanceEndEditable --> 
+
+</body>
+<!-- InstanceEnd --></html>

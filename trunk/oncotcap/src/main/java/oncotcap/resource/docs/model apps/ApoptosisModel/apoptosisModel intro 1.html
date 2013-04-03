@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><!-- InstanceBegin template="/Templates/OncoTCap Overview Template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Untitled Document</title>
+<!-- InstanceEndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- InstanceBeginEditable name="head" -->
+
+<!-- InstanceEndEditable -->
+<link href="../../OncoTCap%20Styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#cFcFCC">
+<!-- InstanceBeginEditable name="OverviewHeader" -->
+<h1>The BAX apoptosis model</h1>
+<!-- InstanceEndEditable --> 
+<hr>
+<!-- InstanceBeginEditable name="OverviewBody" --> 
+<p>This elementary model demonstrates a few capabilities of OncoTCap 4.</p>
+<p>On the next screen is a schematic of the key Statement Bundle, how it is based 
+  on a Statement Template, and how the parameter editor assists with specifying 
+  the functional state of the apoptosis mechanism.</p>
+<p>On the following screen (the &quot;editor&quot;), the model is built by choosing 
+  statement bundles on the left and if desired editing the parameter values by 
+  clicking on the parameter names in the central column.</p>
+<p>Of interest is that the activity of the mechanism depends on a functional p53 
+  product, which is represented as a <a href="../../screens/CategoriesAndCharacteristics.html">Characteristic</a>, 
+  &quot;p53_functionality&quot;. Note that p53_functionality is NOT an identifying 
+  Characteristic of the particular cell type, and could change as temporary conditions 
+  change, such as the presence of treatments, orsignals from neighboring cells. 
+  Many additional statements could be added to account for a variety of causes 
+  for the disabling of p53 function. In this case, p53_functionality depends only 
+  on the presence of at least one WT (wild-type) allele. </p>
+<p>Two types of mutations of p53 are implemented. The first is an allele-level 
+  mutation, expressed in the statement: </p>
+<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;For gene&nbsp; <span class="parameterLink">p53</span> 
+  , the WT allele can mutate to a&nbsp;MUT allele with mutation rate <span class="parameterLink">1e-4</span>.&quot;</p>
+<p>represents a packaging of the pair of model assumptions, that WT-WT -&gt; WT-MUT 
+  can occur, and that WT-MUT to MUT-MUT can occur, and that WT -&gt; MUT can occur. 
+  The first mutation rate is twice the second, since there are two target alleles. 
+  This is powered by two supporting statement bundles; to see how, go back to 
+  the <a href="../../screens/OncBrowser.html">Browser</a> and trace the connections 
+  back through <a href="../../overview/instructionmapping.html">SB's, ST's, and 
+  CB's.</a></p>
+<p>The second mutation is loss of heterozygosity, and is expressed in the statement:</p>
+<p>Again, the transition WT-WT to WT happens with twice the frequency of WT-MUT 
+  to WT.</p>
+<p>While these statements can applied to any gene, they cannot in one step be 
+  applied to all genes in the model. OncoTCap does not currently have an ontology-based 
+  rule engine. This is a problem that will be solved with integration with the 
+  caBIG &quot;Enterprise Vocabulary Services&quot;.</p>
+<p>It is interesting that the two mutation types can exist independently, and 
+  can also be combined. This is because two different Level Lists for a single 
+  Characteristic (in this case, the gene) are combined by taking the set union. 
+  &#x2220; &#x2660;</p>
+<!-- InstanceEndEditable --> 
+</body>
+<!-- InstanceEnd --></html>

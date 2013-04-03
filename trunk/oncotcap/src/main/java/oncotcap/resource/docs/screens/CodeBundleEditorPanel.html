@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><!-- InstanceBegin template="/Templates/OncoTCap%20BrowserNode%20Window%20Help%20Template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>OncoTCap Help: Code Bundle</title>
+<!-- InstanceEndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- InstanceBeginEditable name="head" -->
+<link href="../OncoTCap%20Styles.css" rel="stylesheet" type="text/css">
+<!-- InstanceEndEditable -->
+<link href="../OncoTCap%20Styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFFFCC">
+
+
+ 
+<script language="JavaScript" type="text/JavaScript">
+   document.write("pathname = " + 
+   	   window.location.pathname.substring(window.location.pathname.lastIndexOf("\\")+1, 1000));
+</script>
+<table width="100%" border="1">
+  <tr> 
+    <td><span class="BrowserNodeText"><font size="-1">Root icon</font></span> 
+      &nbsp;&nbsp;&nbsp;&nbsp;<!-- InstanceBeginEditable name="RootIconGoesHere" --> 
+      <font face="Blackadder ITC"><img src="../../image/cb.jpg" width="115" height="18"></font><!-- InstanceEndEditable --> 
+    </td>
+    <td><span class="BrowserNodeText"><font size="-1">Leaf icon</font></span> 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!-- InstanceBeginEditable name="LeafIconGoesHere" --><img src="../../image/CodeBundle.jpg" width="23" height="18"><!-- InstanceEndEditable --> 
+    </td>
+  </tr>
+</table>
+<!-- InstanceBeginEditable name="AfterIconsSeeAlso" -->See also&nbsp;&nbsp;<a href="../overview/instructionmapping.html">Overview 
+of Instruction Mapping</a><!-- InstanceEndEditable -->
+<hr>
+ 
+<!-- InstanceBeginEditable name="NAME-OF-WINDOW" --> 
+<h1> <b>Code Bundle</b> editor window</h1>
+<!-- InstanceEndEditable -->
+<br>PURPOSE: <BR>
+<table width=100% border="1">
+  <tr> 
+    <td width=100 bgcolor="#FFCC00">&nbsp;</td>
+  <td>
+  <!-- InstanceBeginEditable name="PURPOSE" --> 
+      <p>To represent the intended operational meaning of a Statement Template, 
+        by means of an agent-based (object-oriented) representation.<br>
+        This representation can later be translated automatically into the code 
+        specifically needed for a particular modeling computational engine.</p>
+      <p>Statement Templates are ultimately represented entirely by Code Bundles, 
+        either directly, or indirectly through Statement Bundles which package 
+        Code Bundles, or both..</p>
+      <!-- InstanceEndEditable --> 
+  </td>
+  </tr>
+</table>
+
+<BR>HOW TO USE THIS WINDOW:<BR>
+
+<table width=100% border="1">
+  <tr> 
+    <td width=100 bgcolor="#FFCC00">&nbsp;</td>
+    <td ><!-- InstanceBeginEditable name="HOW-TO-USE-ME" --> You can obtain this 
+      window as follows: 
+      <ul>
+        <li>From a Statement Template editor window, click the blue text<br>
+          <font color="#6699FF">Add A Code Bundle</font> above the bottom pane. 
+        </li>
+      </ul>
+      <p>To create a Code Bundle, one must </p>
+      <ul>
+        <li>select the &quot;OncProcess&quot;, which is the agent in the sense 
+          of &quot;agent-based modeling&quot; (upper left),</li>
+        <li>select the method or event to which the agent is responding (upper 
+          right),</li>
+        <li>add an &quot;IF&quot; clause if needed (at this time, must be Java 
+          code),</li>
+        <li>add one or more actions, by clicking on <font color="#0066ff">Add 
+          an Action</font>.</li>
+      </ul>
+      The actions on the list will happen when the selected method of the selected 
+      OncProcess is called at model run time. The action types are as follows: 
+      <ul>
+        <li>Add a variable</li>
+        <BLOCKQUOTE> This action only creates a variable declaration. There are 
+          only four variable types: Multiplyable, Switchable, Incrementable and 
+          String.. Currently variable types and paramater types have no relationship. 
+          A default value can be provided (optional). (Variable declarations are 
+          placed outside any method, so variables are accessible from any method 
+          in the OncProcess.)</BLOCKQUOTE>
+        <li>Initialize a variable</li>
+        <BLOCKQUOTE> This action creates a variable declaration. There are a number 
+          of variable types. Currently variable types and paramater types have 
+          no relationship.</BLOCKQUOTE>
+        <li>Modify a variable</li>
+        <BLOCKQUOTE> 
+          <p>This action creates a statement which modifies the current value 
+            of a variable, according to the operator that is allowed for that 
+            variable. the user should pick a variable from the list provided. 
+            (A filter is also provided, which may help one find the variable if 
+            the list is very long.) </p>
+          <p>A principle we follow is that the model should not behave differently 
+            if modifications occur in different orders, therefore modifications 
+            are commutative, therefore each variable type is allowed only one 
+            modification operator. </p>
+          <ul>
+            <li>Float: multipliable.</li>
+            <li>Integer: incrementable.</li>
+            <li>Boolean: switchable.</li>
+          </ul>
+          For Booleans (true/false variables), to ensure commutativity, an initial 
+          state must be chosen, and only a modification to the other state is 
+          allowed. </BLOCKQUOTE>
+        <li>Trigger an event</li>
+        <BLOCKQUOTE> This action will, when the model is run, cause a message 
+          to be generated that an event has happened. Any OncProcess which has 
+          a method of the same name as the event will have that method called. 
+          One can also trigger a specific method in a chosen OncProcess.</BLOCKQUOTE>
+        <li>Schedule an event</li>
+        <BLOCKQUOTE> This action creates a schedule for an event to be generated 
+          at specified future times.</BLOCKQUOTE>
+        <li>Modify a schedule</li>
+        <BLOCKQUOTE> This action changes the schedule of an existing scheduled 
+          event. It might be used, for example, to terminate a ongoing treatment 
+          plan or regularly scheduled medical test, or to make visits to an ocologist 
+          less frequent.</BLOCKQUOTE>
+        <li>Instantiate a process</li>
+        <BLOCKQUOTE> This action creates a new OncProcess within the CodeBundle's 
+          OncProcess. In the native simulator, at model run time, the new OncProcess 
+          will be instantiated, and its <font face="Courier New, Courier, mono">init</font> 
+          method will be placed on the MasterScheduler.</BLOCKQUOTE>
+        <li>Add generic code</li>
+        <BLOCKQUOTE> This action allows arbitrary code to be inserted. Currently 
+          there is only a Java code handler. Its purpose is to parse the generic 
+          code for variables, so that dependencies can be recorded. Dependencies 
+          are recorded so that code within methods can be sorted at model compile 
+          time.</BLOCKQUOTE>
+      </ul>
+      <!-- InstanceEndEditable --> </td>
+  </tr>
+</table>
+
+<BR>TIPS:<BR>
+
+<table width=100% border="1">
+  <tr> 
+    <td width=100  bgcolor="#FFCC00">&nbsp;</td>
+    <td ><!-- InstanceBeginEditable name="TIPS" -->Use the back-quote mechanism 
+      to refer to a parameter value in the Statement Template which this Code 
+      Bundle supports.<!-- InstanceEndEditable --></td>
+  </tr>
+</table>
+
+<BR>
+  KNOWN BUGS & INCONVENIENCES:
+<table width=100% border="1">
+  <tr> 
+    <td width=100 bgcolor="#FFCC00">&nbsp;</td>
+    <td ><!-- InstanceBeginEditable name="KNOWN-BUGS-INCONVENIENCES" --> 
+      &nbsp;N/A<!-- InstanceEndEditable --></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+<!-- InstanceEnd --></html>

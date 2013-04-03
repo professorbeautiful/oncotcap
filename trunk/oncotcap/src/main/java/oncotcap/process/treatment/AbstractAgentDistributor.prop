@@ -1,0 +1,5 @@
+#INITVAR VariableType VariableName
+
+INITVAR oncotcap.datalayer.persistible.parameter.TcapString TreatmentName
+INITVAR oncotcap.datalayer.persistible.parameter.DeclarePositive Concentration
+INITVAR oncotcap.datalayer.persistible.parameter.TcapString DoseUnits
