@@ -273,7 +273,7 @@ public class DefaultInputEditor extends JFrame implements ActionListener, Editor
 			pnlButtons.add(this.checkSameSimulation);
 			
 			setIconImage(OncoTcapIcons.getImage(getClass().getSimpleName()+".jpg"));
-			setSize(800,600);
+			setSize(900,600);
 			treStatements.setBorder(BorderFactory.createEmptyBorder());
 			treStatements.setBackground(TcapColor.lightGreen);
 			treStatements.setPreferredSize(new Dimension(700,700));
