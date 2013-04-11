@@ -45,13 +45,14 @@ public class Oncotcap
 	public static void main(String [] args)
 	{
 //		System.getProperties().list(System.out);
-		System.out.println(System.getProperty("java.version"));
+		//System.out.println(System.getProperty("java.version"));
 		//Logger.log(javax.swing.UIManager.getLookAndFeel());
 		//Oncotcap.initSim();
 		//handleCommandLine(args);
 		//System.out.println("INSTALL DIR: " + installDir + "\nOUTPUT DIR: " + outputDir);
 		//System.out.println(getUserHomePath());
 		//System.out.println(getInstallDir());
+		oncotcap.display.browser.OncBrowser.main(args);
 	}
 
 	static{
