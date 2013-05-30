@@ -1,0 +1,48 @@
+2013-05-28
+Using TcapData-Roger  (soft-linked)
+
+I corrected the OncoType DX code.
+RiskGroup action had never been completed.
+Works now.
+
+Looking at the example that runs SPlus code,
+there is reference to a splus jars.
+So to adapt to R, we'll probably have to use RJava.
+
+In the DEMO Ba apoptosis boolean tree,
+the last statement has an error in the java code.
+If ___ is true then the mitosis rate is changed by ____.
+
+The statement that begins "NOT WORKING" seems to be working.
+
+There are 24 errors like this on startup:
+java.lang.NoSuchFieldException: outputScreens
+But it doesn't seem to hurt anything.
+
+Running DEMO GoldieColdman:
+In Drug X as episodic treatment,
+compiler cannot find ranmarInstance
+
+Made corrections for the MC TEST event sequences.
+Must have  String message = "`event`";
+Declaration and assignment must be combined,
+and the doublequotes are necessary too.
+Still not running: the error is
+rglist: [Ljava.lang.Object;@49b09e06 length=0
+java.lang.NullPointerException
+	at tcapmodel34.Patient.init(Patient.java:156)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at oncotcap.sim.schedule.MasterScheduler.execute(MasterScheduler.java:194)
+	at oncotcap.engine.ProcessController.run(ProcessController.java:141)
+	at java.lang.Thread.run(Thread.java:722)
+
+Also, upon saving the KB, we get 8 copies of this error:
+Error occured while accessing outputScreens in oncotcap.datalayer.persistible.ModelController check access it must be public
+
+
+Convenience:  CMD-W should close a window.
+
+the connection between detecting a "discourse" in a KN and our "Interpretation"...   could be useful!
