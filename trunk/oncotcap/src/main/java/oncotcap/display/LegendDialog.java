@@ -52,15 +52,16 @@ public class LegendDialog extends JDialog implements LegendPanelListener
 		int ownerHeight = owner.getHeight();
 		//if there is room at the top of the screen put the legend there
 		if(ownerY > getPreferredHeight())
-			setLocation(new Point(0, ownerY - getPreferredHeight()));
+			setLocation(new Point((int)owner.getLocation().getX(), ownerY - getPreferredHeight()));
 		//otherwise put it below the owner or overlap the bottom of the owner
 		//if there isn't enough room at the bottom of the screen 
 		else
-			setLocation(new Point(0, (int) Math.min(ownerY + ownerHeight, getScreenHeight() - getPreferredHeight())));
+			setLocation(new Point((int)owner.getLocation().getX(), (int) Math.min(ownerY + ownerHeight, getScreenHeight() - getPreferredHeight())));
 	}
 	public void setSize()
 	{
-		this.setSize(getPreferredWidth(),getPreferredHeight());
+		//this.setSize(getPreferredWidth(),getPreferredHeight());
+		this.setSize(800,getPreferredHeight());
 	}
 	private int getPreferredWidth()
 	{
