@@ -1,4 +1,4 @@
-; Wed May 29 00:01:57 EDT 2013
+; Thu Sep 05 13:41:28 EDT 2013
 ; 
 ;+ (version "1.8")
 ;+ (build "Build 1074")
@@ -7,20 +7,126 @@
 (defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS
 	(is-a USER)
 	(role concrete)
-	(single-slot codeBundle
-		(type INSTANCE)
-;+		(allowed-classes CodeBundle)
-;+		(cardinality 1 1)
+	(single-slot maxArguments
+		(type INTEGER)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot oncotcap_00228
+	(multislot valueMap
+		(type INSTANCE)
+;+		(allowed-classes ValueMapEntry)
+;+		(inverse-slot statementBundlesThatContainMe)
+		(create-accessor read-write))
+	(multislot inputs
+		(type INSTANCE)
+;+		(allowed-classes Persistible)
+		(create-accessor read-write))
+	(single-slot jURLabbrev
+;+		(comment "For use with FullText\nscripts.\n\nNot necessary.")
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot fullSourceURL
-		(type STRING)
+	(multislot dataSourceObjectList
+		(type INSTANCE)
+;+		(allowed-classes DataSourceObject)
 		(create-accessor read-write))
-	(multislot toxicities
+	(single-slot manifest
+		(type SYMBOL)
+;+		(allowed-parents)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot originalParameter
+		(type INSTANCE)
+;+		(allowed-classes Parameter)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot n
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot sentencesAboutThis
+		(type INSTANCE)
+;+		(allowed-classes Sentence)
+		(create-accessor read-write))
+	(single-slot clsAttributeType
+		(type INSTANCE)
+;+		(allowed-classes JavaClass)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot quoteLocation
+		(type INSTANCE)
+;+		(allowed-classes Bookmark)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot volume
+		(type INTEGER)
+		(range 1 %3FVARIABLE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot clsPaths
+		(type INSTANCE)
+;+		(allowed-classes ProtegeClassPath)
+		(create-accessor read-write))
+	(single-slot getMethodName
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot quote
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot oncMethod
+		(type INSTANCE)
+;+		(allowed-classes MethodDeclaration SystemDefinedOncMethod)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot currentValue
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot conditionalTableParameter
+		(type INSTANCE)
+;+		(allowed-classes ConditionalTableParameter)
+;+		(inverse-slot stateMatrix)
+		(create-accessor read-write))
+	(single-slot defaultValue
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot oncotcap_00603
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot conditionValue
+		(type INSTANCE)
+;+		(allowed-classes Persistible)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot attributeSubType
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot minimumValue
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot assessmentItemType
+		(type INSTANCE)
+;+		(allowed-classes AssessmentItemType)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot objectMap
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot variableClass
+		(type SYMBOL)
+		(allowed-values enum enumValue)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot javaClass
+		(type INSTANCE)
+;+		(allowed-classes JavaClass)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot statementTemplateContainingMe
 		(type INSTANCE)
@@ -28,155 +134,23 @@
 ;+		(cardinality 0 1)
 ;+		(inverse-slot codeBundles)
 		(create-accessor read-write))
-	(single-slot quoteLocation
+	(single-slot affinity
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot refinements
 		(type INSTANCE)
-;+		(allowed-classes Bookmark)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot object+to+trigger
-;+		(comment "Example:\n( (Patient)getOncParent() )")
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot instanceUsabilityStatus
-;+		(comment "what state the instance is complete incomplete etc")
-		(type SYMBOL)
-		(allowed-values ReadyForUse InProgress Retired)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot attributeList
-		(type INSTANCE)
-;+		(allowed-classes DataSourceAttributeMap)
-		(create-accessor read-write))
-	(single-slot javaClass
-		(type INSTANCE)
-;+		(allowed-classes JavaClass)
-;+		(cardinality 0 1)
+;+		(allowed-classes Claim)
 		(create-accessor read-write))
 	(single-slot versionNumber
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot classAndPackage
+	(single-slot Task2Model2_01248
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot rootNode
-		(type INSTANCE)
-;+		(allowed-classes OncTreeNode)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot fromPropFile
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot r1ParamName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot codeBundlesThatContainMe
-		(type INSTANCE)
-;+		(allowed-classes CodeBundle)
-		(create-accessor read-write))
-	(single-slot overridingStringValue
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot affinity
-		(type FLOAT)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot defaultRow
-		(type INSTANCE)
-;+		(allowed-classes StateMatrixRow)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot inputScreen
-		(type INSTANCE)
-;+		(allowed-classes InputScreen)
-		(create-accessor read-write))
-	(single-slot parameterAsDisplayed
-;+		(comment "\"[<\" + name + \"=\" + \nvalueAsDisplayed\n(SOMETHING SPECIFIC TO SUBCLASS)\n+ \">]\"")
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot description
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot beta
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot required
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot deactivates
-		(type INSTANCE)
-;+		(allowed-classes BioEntity)
-		(create-accessor read-write))
-	(single-slot pr1ParamName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot levels
-		(type INSTANCE)
-;+		(allowed-classes EnumLevel)
-		(create-accessor read-write))
-	(single-slot assessmentScore
-		(type SYMBOL)
-		(allowed-values low low%2Fmed medium med%2Fhigh high)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot subModelGroups
-		(type INSTANCE)
-;+		(allowed-classes SubModelGroup)
-		(create-accessor read-write))
-	(multislot biorelationships
-		(type INSTANCE)
-;+		(allowed-classes Biorelationship)
-		(create-accessor read-write))
-	(single-slot orderHint
-;+		(comment "CAUTION:  Re-re-named this to start with lowercase.")
-		(type INTEGER)
-		(range 0 100)
-		(default 50)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot attributeType
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot helpInfo
-		(type INSTANCE)
-;+		(allowed-classes HelpInfo)
-		(create-accessor read-write))
-	(single-slot secondObject
-		(type INSTANCE)
-;+		(allowed-classes Molecule)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot browserMapItems
-		(type INSTANCE)
-;+		(allowed-classes BrowserNodeClass)
-		(create-accessor read-write))
-	(single-slot fullSourceProvider
-		(type INSTANCE)
-;+		(allowed-classes FullSourceProvider)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(multislot encodingsIHelpImplement
-		(type INSTANCE)
-;+		(allowed-classes Encoding)
-;+		(inverse-slot statementBundlesImplementingMe)
-		(create-accessor read-write))
-	(multislot instantiationParameters
-		(type STRING)
-		(create-accessor read-write))
-	(single-slot durationName
+	(single-slot name_
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -184,146 +158,131 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot dummyField
+	(multislot submodelGroups
 		(type INSTANCE)
-;+		(allowed-classes InformationEntity Persistible Timestampable BrowserNode CancerEntity ModelEntity ModelBuilderMetaData)
-;+		(cardinality 0 1)
+;+		(allowed-classes SubModelGroup)
+;+		(inverse-slot modelControllersUsingMe)
 		(create-accessor read-write))
-	(single-slot clsAttributeSubType
+	(multislot claimsSupportingMe
 		(type INSTANCE)
-;+		(allowed-classes JavaClass)
-;+		(cardinality 0 1)
+;+		(allowed-classes Claim)
 		(create-accessor read-write))
-	(single-slot enumDefinitionsContainingMe
-		(type INSTANCE)
-;+		(allowed-classes)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot PMID
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot quote
+	(single-slot Task2Model2_01245
 		(type STRING)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot variableModification
-		(type INSTANCE)
-;+		(allowed-classes VariableModification)
 ;+		(cardinality 0 1)
-;+		(inverse-slot modifyVariableActionsContainingMe)
 		(create-accessor read-write))
-	(single-slot informationSource
-		(type INSTANCE)
-;+		(allowed-classes InformationSource)
+	(single-slot modifier
+;+		(comment "Holds code that returns a value that will modify the variable according to the operation appropriate to the class.")
+		(type STRING)
 ;+		(cardinality 0 1)
-;+		(inverse-slot quotesInMe)
 		(create-accessor read-write))
-	(single-slot rootKeyword
-		(type INSTANCE)
-;+		(allowed-classes Keyword)
+	(single-slot increment
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot modelControllerName
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot toCls
+	(single-slot topKeyword
 		(type INSTANCE)
-;+		(allowed-classes %3ACLASS)
+;+		(allowed-classes Keyword)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot declareVariable
-		(type INSTANCE)
-;+		(allowed-classes DeclareVariable)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot defaultValue
+	(single-slot 888e669800000000000000f6f72b3f84
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot variableName
+	(multislot browserMapItems
+		(type INSTANCE)
+;+		(allowed-classes BrowserNodeClass)
+		(create-accessor read-write))
+	(multislot submodelGroupsIJoin
+		(type INSTANCE)
+;+		(allowed-classes SubModelGroup)
+;+		(inverse-slot submodelsInGroup)
+		(create-accessor read-write))
+	(single-slot Task2Model2_01280
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot nTimesChange
+	(single-slot initialState
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot journalHomeLink
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot index
 		(type INTEGER)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot keyword
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot inputScreen
+		(type INSTANCE)
+;+		(allowed-classes InputScreen)
 		(create-accessor read-write))
 	(single-slot statementHTML
 ;+		(comment "This is the text with embedded variables in HTML format")
 		(type STRING)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot modificationTime
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot arithmatic
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot pages
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot initialValue
+	(multislot downregulates
 		(type INSTANCE)
-;+		(allowed-classes DeclareVariable)
-;+		(cardinality 0 1)
+;+		(allowed-classes BioEntity)
 		(create-accessor read-write))
-	(single-slot queryTemplate
+	(multislot actions
 		(type INSTANCE)
-;+		(allowed-classes QueryTemplate)
-;+		(cardinality 0 1)
+;+		(allowed-classes OncAction)
+;+		(inverse-slot codeBundlesContainingMe)
 		(create-accessor read-write))
-	(multislot confidenceAssessments
-		(type INSTANCE)
-;+		(allowed-classes ConfidenceItem)
-		(create-accessor read-write))
-	(single-slot protegeClass
-		(type SYMBOL)
-;+		(allowed-parents Persistible OncTime BooleanExpression StatementTemplate SubsetClass ProtegeSlotPath EventDeclaration CodeBundle Parameter MethodDeclaration StatementBundleConfiguration StatementBundle ValueMapEntry VariableModification EnumLevelList ProcessDeclaration SearchPath OncAction TcapLogicalOperator OncFilter QueryTemplate BrowserNodeWithKeywords ModelConfiguration ProjectInfo ProbabilityTable Keyword TcapOperator EnumLevel VariableDefinition ProtegeClassPath DeclareVariable HelpInfo OncTreeNode ScheduleEventAction ModifyScheduleAction OncActionWithVariable InstantiateOncProcess TriggerEventAction AddGenericCode)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot enumInitializations
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot node_chart
+	(multislot rowColumns
 		(type INSTANCE)
 ;+		(allowed-classes Persistible)
-;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot userObject
-		(type INSTANCE)
-;+		(allowed-classes Persistible)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot idEnum
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot initialParameterValue
-		(type INSTANCE)
-;+		(allowed-classes TcapInteger DeclarePositive TcapString DeclareSwitchablePositive TcapFloat TreatmentSchedule)
+	(single-slot parameterAsDisplayed
+;+		(comment "\"[<\" + name + \"=\" + \nvalueAsDisplayed\n(SOMETHING SPECIFIC TO SUBCLASS)\n+ \">]\"")
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot n1ParamName
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot year
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot currentValue
+	(single-slot setMethodName
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot infoText
+	(single-slot scheduleEndType
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sourceLocatorMethod
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot evidenceFor
+		(type INSTANCE)
+;+		(allowed-classes Interpretation)
+		(create-accessor read-write))
+	(multislot rulesContainingMe
+		(type INSTANCE)
+;+		(allowed-classes Rule)
+		(create-accessor read-write))
+	(single-slot defaultInitialFloatValue
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot singleParameterID
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot durationName
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -333,34 +292,551 @@
 ;+		(cardinality 0 1)
 ;+		(inverse-slot ActionsContainingMe)
 		(create-accessor read-write))
-	(single-slot isDayList
+	(single-slot timeChange
+		(type INSTANCE)
+;+		(allowed-classes OncTime)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot secondObject
+		(type INSTANCE)
+;+		(allowed-classes Molecule)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot clauses
+		(type INSTANCE)
+;+		(allowed-classes RuleClause)
+		(create-accessor read-write))
+	(multislot encodingsInMe
+		(type INSTANCE)
+;+		(allowed-classes Encoding)
+;+		(inverse-slot submodelsIJoin)
+		(create-accessor read-write))
+	(single-slot visible
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot submodelGroupsIJoin
+	(single-slot statementBundlesThatContainMe
 		(type INSTANCE)
-;+		(allowed-classes SubModelGroup)
-;+		(inverse-slot submodelsInGroup)
+;+		(allowed-classes StatementBundle)
+;+		(cardinality 0 1)
+;+		(inverse-slot valueMap)
+		(create-accessor read-write))
+	(multislot upregulates
+		(type INSTANCE)
+;+		(allowed-classes BioEntity)
+		(create-accessor read-write))
+	(single-slot javaClassName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot variableDefinitionsAndCodeBundlesContainingMe
+		(type INSTANCE)
+;+		(allowed-classes VariableDefinition CodeBundle)
+;+		(inverse-slot oncProcess)
+		(create-accessor read-write))
+	(single-slot eventType
+		(type INTEGER)
+		(default 1)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot queryTemplate
+		(type INSTANCE)
+;+		(allowed-classes QueryTemplate)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot isDefaultValue
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot infoSources
+		(type INSTANCE)
+;+		(allowed-classes InformationSource)
+		(create-accessor read-write))
+	(multislot possibleOutcomes
+		(type INSTANCE)
+;+		(allowed-classes ConditionalOutcome)
+		(create-accessor read-write))
+	(single-slot statement
+		(type INSTANCE)
+;+		(allowed-classes Claim)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot defaultIntegerValue
+		(type STRING)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot prResp1
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot rulesContainingMe
+	(multislot helpInfo
 		(type INSTANCE)
-;+		(allowed-classes Rule)
+;+		(allowed-classes HelpInfo)
 		(create-accessor read-write))
-	(single-slot setMethodName
+	(single-slot initialValueString
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot arguments
+	(multislot outputScreens
 		(type STRING)
 		(create-accessor read-write))
-	(single-slot ordered
+	(single-slot codeBundle
+		(type INSTANCE)
+;+		(allowed-classes CodeBundle)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot activates
+		(type INSTANCE)
+;+		(allowed-classes BioEntity)
+		(create-accessor read-write))
+	(multislot participatesIn
+		(type INSTANCE)
+;+		(allowed-classes MolecularNetwork)
+		(create-accessor read-write))
+	(multislot ActionsContainingMe
+		(type INSTANCE)
+;+		(allowed-classes AddAVariable ModifyVariableAction InitVariableAction)
+;+		(inverse-slot variable)
+		(create-accessor read-write))
+	(single-slot firstObject
+		(type INSTANCE)
+;+		(allowed-classes Gene)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot tcap2id
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot validationScenarios
+		(type INSTANCE)
+;+		(allowed-classes ValidationScenario)
+		(create-accessor read-write))
+	(single-slot nTimesChange
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot listOfAllowableEntries
+		(type STRING)
+		(create-accessor read-write))
+	(single-slot modifiedBy
+;+		(comment "username of last person to edit")
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot pr1ParamName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot entities
+		(type INSTANCE)
+;+		(allowed-classes CancerEntity)
+		(create-accessor read-write))
+	(multislot statementTemplatesUsingMe
+		(type INSTANCE)
+;+		(allowed-classes StatementTemplate)
+;+		(inverse-slot statementBundles)
+		(create-accessor read-write))
+	(multislot args
+		(type STRING)
+		(create-accessor read-write))
+	(single-slot r1
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot inverseOfQuotesInMe
+		(type INSTANCE)
+;+		(allowed-classes)
+		(create-accessor read-write))
+	(single-slot genericCode
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot enumName
+		(type INSTANCE)
+;+		(allowed-classes Keyword)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot abbreviation
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot keywords
+		(type INSTANCE)
+;+		(allowed-classes Keyword)
+;+		(inverse-slot describedInstances)
+		(create-accessor read-write))
+	(single-slot pickerType
+;+		(comment "boolean expression\nassignment\nor instantiation	")
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot creator
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot addCodeInsideMethod
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot ontologyCategory
+;+		(comment "What leg of the three legged stool")
+		(type INSTANCE)
+;+		(allowed-classes OntologyCategory)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot subsetFilter
+		(type INSTANCE)
+;+		(allowed-classes SubsetFilter)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot listIndex
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot initialParameterValue
+		(type INSTANCE)
+;+		(allowed-classes TcapInteger DeclarePositive TcapString DeclareSwitchablePositive TcapFloat TreatmentSchedule)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot attributeType
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot oncotcap_00228
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot pages
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot stateMatrixRow
+		(type INSTANCE)
+;+		(allowed-classes StateMatrixRow)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot instanceUsabilityStatus
+;+		(comment "what state the instance is complete incomplete etc")
+		(type SYMBOL)
+		(allowed-values ReadyForUse InProgress Retired)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot oncProcess
+		(type INSTANCE)
+;+		(allowed-classes ProcessDeclaration)
+;+		(cardinality 0 1)
+;+		(inverse-slot variableDefinitionsAndCodeBundlesContainingMe)
+		(create-accessor read-write))
+	(multislot codeBundles
+		(type INSTANCE)
+;+		(allowed-classes CodeBundle)
+;+		(inverse-slot statementTemplateContainingMe)
+		(create-accessor read-write))
+	(single-slot toggleSwitch
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+		(default FALSE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot startLevelDisplayName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot variableModification
+		(type INSTANCE)
+;+		(allowed-classes VariableModification)
+;+		(cardinality 0 1)
+;+		(inverse-slot modifyVariableActionsContainingMe)
+		(create-accessor read-write))
+	(multislot encodingsImplementingMe
+		(type INSTANCE)
+;+		(allowed-classes Encoding)
+;+		(inverse-slot interpretationsIEncode)
+		(create-accessor read-write))
+	(single-slot fullSourceProvider
+		(type INSTANCE)
+;+		(allowed-classes FullSourceProvider)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot starterProcess
+		(type INSTANCE)
+;+		(allowed-classes ProcessDeclaration)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot assessments
+		(type INSTANCE)
+;+		(allowed-classes AssessmentItem)
+;+		(inverse-slot knowledgeNugget)
+		(create-accessor read-write))
+	(multislot submodelsInGroup
+		(type INSTANCE)
+;+		(allowed-classes SubModel)
+;+		(inverse-slot submodelGroupsIJoin)
+		(create-accessor read-write))
+	(single-slot modificationType
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot userObject
+		(type INSTANCE)
+;+		(allowed-classes Persistible)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sampleSize
+		(type INTEGER)
+		(range 0 %3FVARIABLE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot creationTime
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot fromPropFile
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot baseCategory
+		(type INSTANCE)
+;+		(allowed-classes DeclareCategory)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Task2Model2_01236
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot confidenceAssessments
+		(type INSTANCE)
+;+		(allowed-classes ConfidenceItem)
+		(create-accessor read-write))
+	(single-slot Task2Model2_01385
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot statementBundle
+		(type INSTANCE)
+;+		(allowed-classes StatementTemplate)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot validationScore
+		(type INTEGER)
+		(range 0 100)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot modifyVariableActionsContainingMe
+		(type INSTANCE)
+;+		(allowed-classes ModifyVariableAction)
+;+		(cardinality 0 1)
+;+		(inverse-slot variableModification)
+		(create-accessor read-write))
+	(single-slot operator
+		(type INSTANCE)
+;+		(allowed-classes TcapOperator)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot magnitude
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot javaSuperClass
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot title
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot startLevel
+		(type INSTANCE)
+;+		(allowed-classes EnumLevel)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot dataSourceAttribute
+		(type INSTANCE)
+;+		(allowed-classes %3ASLOT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot keywordInstance
+		(type INSTANCE)
+;+		(allowed-classes Keyword)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot fullSourceURL
+		(type STRING)
+		(create-accessor read-write))
+	(single-slot whenToCheckRule
+		(type INSTANCE)
+;+		(allowed-classes)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot dataSource
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot attributeList
+		(type INSTANCE)
+;+		(allowed-classes DataSourceAttributeMap)
+		(create-accessor read-write))
+	(single-slot characteristicDisplayName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot journalAsString
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot defaultValueRow
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot iconName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot enum
+		(type INSTANCE)
+;+		(allowed-classes)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot enumLevelList
+		(type INSTANCE)
+;+		(allowed-classes EnumLevelList)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot isCodedBy
+		(type INSTANCE)
+;+		(allowed-classes Gene)
+		(create-accessor read-write))
+	(single-slot parametersContainingMe
+		(type INSTANCE)
+;+		(allowed-classes Parameter)
+;+		(cardinality 0 1)
+;+		(inverse-slot variableDefinitions)
+		(create-accessor read-write))
+	(multislot interpretationsOfMe
+		(type INSTANCE)
+;+		(allowed-classes Interpretation)
+		(create-accessor read-write))
+	(multislot interpretations
+		(type INSTANCE)
+;+		(allowed-classes Interpretation)
+;+		(inverse-slot sourceNuggets)
+		(create-accessor read-write))
+	(multislot encodingsOfMe
+		(type INSTANCE)
+;+		(allowed-classes Encoding)
+		(create-accessor read-write))
+	(single-slot infoText
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot initialValue
+		(type INSTANCE)
+;+		(allowed-classes DeclareVariable)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numberOfTimesUntilEnd
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot endDelayTime
+		(type INSTANCE)
+;+		(allowed-classes OncTime)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot baseEnum
+		(type INSTANCE)
+;+		(allowed-classes)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot switchDisplayName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot quoteSection
+		(type SYMBOL)
+		(allowed-values Abstract Introduction Methods Results Discussion)
+		(default Abstract)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot childKeywords
+		(type INSTANCE)
+;+		(allowed-classes Keyword)
+;+		(inverse-slot parentKeywords)
+		(create-accessor read-write))
+	(multislot statementBundlesWithValueMaps
+		(type INSTANCE)
+;+		(allowed-classes StatementBundle)
+		(create-accessor read-write))
+	(single-slot rightHandSide
+		(type INSTANCE)
+;+		(allowed-classes Persistible)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot agents
+		(type INSTANCE)
+;+		(allowed-classes Agent)
+		(create-accessor read-write))
+	(single-slot description
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot shortDescription
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot statementBundleConfigurations
+		(type INSTANCE)
+;+		(allowed-classes StatementBundleConfiguration)
+		(create-accessor read-write))
+	(multislot probabilities
+		(type INSTANCE)
+;+		(allowed-classes BooleanExpression)
+		(create-accessor read-write))
+	(multislot initializationList
+		(type INSTANCE)
+;+		(allowed-classes DeclareVariable)
+		(create-accessor read-write))
+	(single-slot text
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot clsAttributeSubType
+		(type INSTANCE)
+;+		(allowed-classes JavaClass)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot dayListName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot oncEvent
+;+		(comment "CAUTION:  Re-re-named this to start with lowercase.")
+		(type INSTANCE)
+;+		(allowed-classes EventDeclaration)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Task2Model2_01377
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot modificationTime
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot authors
+		(type INSTANCE)
+;+		(allowed-classes Author)
+		(create-accessor read-write))
+	(single-slot displayValue
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sentences
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot modelConfiguration
@@ -368,36 +844,200 @@
 ;+		(allowed-classes ModelConfiguration)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot sentenceText
+	(single-slot 888eaada00000001000000fe8d577069
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot parameterType
-		(type SYMBOL)
-		(allowed-values Float Integer String Positive Switchable_Positive Schedule)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot interpretationsOfMe
-		(type INSTANCE)
-;+		(allowed-classes Interpretation)
-		(create-accessor read-write))
-	(multislot statementTemplatesUsingMe
-		(type INSTANCE)
-;+		(allowed-classes StatementTemplate)
-;+		(inverse-slot statementBundles)
-		(create-accessor read-write))
-	(multislot function
-;+		(comment "			")
-		(type INSTANCE)
-;+		(allowed-classes Persistible)
-		(create-accessor read-write))
-	(single-slot creationTime
+	(single-slot variableName
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot switchState
+	(single-slot beta
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot fullTextSourceLink
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot oncotcap-0323_00220
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Task2Model2_01364
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot valueAsDisplayed
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot prResp0
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot multiple
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot valueMapEntriesContainingMe
+		(type INSTANCE)
+;+		(allowed-classes ValueMapEntry)
+;+		(inverse-slot clonedParameter)
+		(create-accessor read-write))
+	(multislot singleParameterList
+		(type INSTANCE)
+;+		(allowed-classes)
+		(create-accessor read-write))
+	(multislot introScreens
+		(type STRING)
+		(create-accessor read-write))
+	(single-slot clonedSingleParameter
+		(type INSTANCE)
+;+		(allowed-classes)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot tcap2abbreviation
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot r1ParamName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot knowledgeNugget
+		(type INSTANCE)
+;+		(allowed-classes KnowledgeNugget)
+;+		(cardinality 0 1)
+;+		(inverse-slot assessments)
+		(create-accessor read-write))
+	(single-slot defaultLevel
+		(type INSTANCE)
+;+		(allowed-classes EnumLevel)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot parentKeywords
+		(type INSTANCE)
+;+		(allowed-classes Keyword)
+;+		(inverse-slot childKeywords)
+		(create-accessor read-write))
+	(single-slot toCls
+		(type INSTANCE)
+;+		(allowed-classes %3ACLASS)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3AREFERENCES
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot leftHandSide
+		(type INSTANCE)
+;+		(allowed-classes Persistible)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot problemContext
+		(type INSTANCE)
+;+		(allowed-classes)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot timeUnit
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot time
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot constraintKeyword
+		(type INSTANCE)
+;+		(allowed-classes Keyword)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot enumInitializations
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot codeBundlesContainingMe
+		(type INSTANCE)
+;+		(allowed-classes CodeBundle)
+;+		(cardinality 0 1)
+;+		(inverse-slot actions)
+		(create-accessor read-write))
+	(single-slot PMID
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot functionParameter
+		(type INSTANCE)
+;+		(allowed-classes FunctionParameter)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot oncotcapOntologyVersion
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot rootKeyword
+		(type INSTANCE)
+;+		(allowed-classes Keyword)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot webscript
+;+		(comment "Could be structured like Actions.\n\nFor now, a String like the\nsourceLocatorMethod slot in FullSourceProvider.")
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot minimum
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot attributeName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot relevanceAssessments
+		(type INSTANCE)
+;+		(allowed-classes RelevanceItem)
+		(create-accessor read-write))
+	(single-slot year
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot value
+;+		(comment "An expression that returns a value.")
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot stateMatrix
+		(type INSTANCE)
+;+		(allowed-classes StateMatrix)
+;+		(cardinality 0 1)
+;+		(inverse-slot conditionalTableParameter)
+		(create-accessor read-write))
+	(single-slot 888e66980000000e000000fd2d8ba3b5
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot pr0ParamName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot visibleBundles
+		(type INSTANCE)
+;+		(allowed-classes OncTreeNode)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot bindsTo
+		(type INSTANCE)
+;+		(allowed-classes BioEntity)
+		(create-accessor read-write))
+	(single-slot node_chart
+		(type INSTANCE)
+;+		(allowed-classes Persistible)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot displayName
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot biophysModelGroup
@@ -405,16 +1045,147 @@
 ;+		(allowed-classes SubModelGroup)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot variableDefinitions
+	(single-slot levelList
 		(type INSTANCE)
-;+		(allowed-classes VariableDefinition)
-;+		(inverse-slot parametersContainingMe)
+;+		(allowed-classes EnumLevelList)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot tcap2abbreviation
+	(single-slot alphaParamName
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot communicator
+		(type INSTANCE)
+;+		(allowed-classes Person)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot topLevelDisplayName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot dummyField
+		(type INSTANCE)
+;+		(allowed-classes InformationEntity Persistible Timestampable BrowserNode CancerEntity ModelEntity ModelBuilderMetaData)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot metaData
+		(type INSTANCE)
+;+		(allowed-classes Persistible)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot alpha
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot toxicities
+		(type STRING)
+		(create-accessor read-write))
+	(single-slot classAndPackage
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot valueMapAsDisplayed
+;+		(comment "Manual for now,\nwill be automated through a slot widget.\n\nparameter name + \"=\" + value")
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot levels
+		(type INSTANCE)
+;+		(allowed-classes EnumLevel)
+		(create-accessor read-write))
+	(single-slot originalSingleParameter
+		(type INSTANCE)
+;+		(allowed-classes)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot basePicker
+		(type INSTANCE)
+;+		(allowed-classes DeclareEnumPicker)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot arithmatic
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot recipient
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot required
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot coursesName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot isHeading
+;+		(comment "	")
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nParamName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot floatValue
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot rootNode
+		(type INSTANCE)
+;+		(allowed-classes OncTreeNode)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot defaultRow
+		(type INSTANCE)
+;+		(allowed-classes StateMatrixRow)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot interpretationsIEncode
+		(type INSTANCE)
+;+		(allowed-classes Interpretation)
+;+		(inverse-slot encodingsImplementingMe)
+		(create-accessor read-write))
+	(multislot inverseOfKeywords
+		(type INSTANCE)
+;+		(allowed-classes Keyword)
+		(create-accessor read-write))
+	(single-slot recur
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+		(default FALSE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot article
+		(type INSTANCE)
+;+		(allowed-classes Article)
+;+		(cardinality 0 1)
+;+		(inverse-slot weblink)
+		(create-accessor read-write))
+	(single-slot weblink
+		(type INSTANCE)
+;+		(allowed-classes WebLink)
+;+		(cardinality 0 1)
+;+		(inverse-slot article)
+		(create-accessor read-write))
+	(single-slot ordered
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot betaParamName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot modification
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot dateTimeLastModified
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -425,95 +1196,63 @@
 		(default FALSE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot category
-		(type INSTANCE)
-;+		(allowed-classes Keyword)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot abbreviation
+	(single-slot pubMedURL
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot originalParameter
-		(type INSTANCE)
-;+		(allowed-classes Parameter)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot issue
-		(type INTEGER)
-		(range 1 %3FVARIABLE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Task2Model2_01446
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot comment
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot fullTextSourceLink
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot upregulates
+	(multislot deactivates
 		(type INSTANCE)
 ;+		(allowed-classes BioEntity)
 		(create-accessor read-write))
-	(single-slot journalAsString
-		(type STRING)
+	(single-slot clonedParameter
+		(type INSTANCE)
+;+		(allowed-classes Parameter)
+;+		(cardinality 0 1)
+;+		(inverse-slot valueMapEntriesContainingMe)
+		(create-accessor read-write))
+	(multislot modelControllersUsingMe
+		(type INSTANCE)
+;+		(allowed-classes ModelController)
+;+		(inverse-slot submodelGroups)
+		(create-accessor read-write))
+	(single-slot journal
+		(type INSTANCE)
+;+		(allowed-classes Journal)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot nCourses
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot codeBundles
-		(type INSTANCE)
-;+		(allowed-classes CodeBundle)
-;+		(inverse-slot statementTemplateContainingMe)
-		(create-accessor read-write))
-	(multislot possibleOutcomes
-		(type INSTANCE)
-;+		(allowed-classes ConditionalOutcome)
-		(create-accessor read-write))
-	(single-slot endLevelDisplayName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot participatesIn
-		(type INSTANCE)
-;+		(allowed-classes MolecularNetwork)
-		(create-accessor read-write))
-	(multislot parentKeywords
-		(type INSTANCE)
-;+		(allowed-classes Keyword)
-;+		(inverse-slot childKeywords)
-		(create-accessor read-write))
-	(single-slot increment
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot enumLevelList
-		(type INSTANCE)
-;+		(allowed-classes EnumLevelList)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot refinements
-		(type INSTANCE)
-;+		(allowed-classes Claim)
-		(create-accessor read-write))
-	(single-slot variableClass
+	(single-slot idEnum
 		(type SYMBOL)
-		(allowed-values enum enumValue)
+		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot Task2Model2_01245
+	(single-slot bookmarkLocation
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot dayList
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot searchPathId
-;+		(comment "name used to retrieve path from KB ")
+	(single-slot r
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot baseParameter
+		(type INSTANCE)
+;+		(allowed-classes DeclareTwoLevelParameter)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot scheduleToModify
+		(type INSTANCE)
+;+		(allowed-classes ScheduleEventAction)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot sourceNuggets
+		(type INSTANCE)
+;+		(allowed-classes KnowledgeNugget)
+;+		(inverse-slot interpretations)
+		(create-accessor read-write))
+	(single-slot scheduleStartType
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -523,1137 +1262,42 @@
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot validationCriteria
-		(type INSTANCE)
-;+		(allowed-classes Interpretation)
-		(create-accessor read-write))
-	(single-slot problemContext
-		(type INSTANCE)
-;+		(allowed-classes)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(multislot submodelsInGroup
-		(type INSTANCE)
-;+		(allowed-classes SubModel)
-;+		(inverse-slot submodelGroupsIJoin)
-		(create-accessor read-write))
-	(single-slot gapTime
-		(type INSTANCE)
-;+		(allowed-classes OncTime)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot statementBundles
-		(type INSTANCE)
-;+		(allowed-classes StatementBundle)
-;+		(inverse-slot statementTemplatesUsingMe)
-		(create-accessor read-write))
-	(single-slot displayName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot oncProcess
-		(type INSTANCE)
-;+		(allowed-classes ProcessDeclaration)
-;+		(cardinality 0 1)
-;+		(inverse-slot variableDefinitionsAndCodeBundlesContainingMe)
-		(create-accessor read-write))
-	(single-slot dateTimeLastModified
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Task2Model2_01280
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot activates
-		(type INSTANCE)
-;+		(allowed-classes BioEntity)
-		(create-accessor read-write))
-	(multislot rowColumns
-		(type INSTANCE)
-;+		(allowed-classes Persistible)
-		(create-accessor read-write))
-	(single-slot numberOfTimesUntilEnd
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot prettyName
-;+		(comment "display name		")
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot statement
-		(type INSTANCE)
-;+		(allowed-classes Claim)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot submodelsIJoin
-		(type INSTANCE)
-;+		(allowed-classes SubModel)
-;+		(inverse-slot encodingsInMe)
-		(create-accessor read-write))
-	(single-slot text
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(multislot methods
 		(type INSTANCE)
 ;+		(allowed-classes MethodDeclaration SystemDefinedOncMethod)
 		(create-accessor read-write))
-	(single-slot index
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot statementBundlesThatContainMe
-		(type INSTANCE)
-;+		(allowed-classes StatementBundle)
-;+		(cardinality 0 1)
-;+		(inverse-slot valueMap)
-		(create-accessor read-write))
-	(single-slot enumValue
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot stringValue
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot clauses
-		(type INSTANCE)
-;+		(allowed-classes RuleClause)
-		(create-accessor read-write))
-	(single-slot sentences
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot timeUnit
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot clsPaths
-		(type INSTANCE)
-;+		(allowed-classes ProtegeClassPath)
-		(create-accessor read-write))
-	(single-slot IDEnum
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot outputScreens
+	(multislot dataSourceAttributeMap
 		(type STRING)
 		(create-accessor read-write))
-	(single-slot listIndex
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot encodingsImplementingMe
-		(type INSTANCE)
-;+		(allowed-classes Encoding)
-;+		(inverse-slot interpretationsIEncode)
-		(create-accessor read-write))
-	(single-slot parametersContainingMe
-		(type INSTANCE)
-;+		(allowed-classes Parameter)
-;+		(cardinality 0 1)
-;+		(inverse-slot variableDefinitions)
-		(create-accessor read-write))
-	(single-slot singleParameterID
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot integerValue
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot ontologyCategory
-;+		(comment "What leg of the three legged stool")
-		(type INSTANCE)
-;+		(allowed-classes OntologyCategory)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot outcomes
-		(type INSTANCE)
-;+		(allowed-classes Persistible)
-		(create-accessor read-write))
-	(single-slot addCodeInsideMethod
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot title
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot listOfAllowableEntries
-		(type STRING)
-		(create-accessor read-write))
-	(single-slot value
-;+		(comment "An expression that returns a value.")
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot baseEnum
-		(type INSTANCE)
-;+		(allowed-classes)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot infoSources
-		(type INSTANCE)
-;+		(allowed-classes InformationSource)
-		(create-accessor read-write))
-	(single-slot time
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot quotesInMe
-		(type INSTANCE)
-;+		(allowed-classes KnowledgeNugget)
-;+		(inverse-slot informationSource)
-		(create-accessor read-write))
-	(single-slot assessmentType
-		(type SYMBOL)
-		(allowed-values CONFIDENCE RELEVANCE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot pr0ParamName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot initialValueString
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot bookmarkLocation
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot attributeFilter
-		(type INSTANCE)
-;+		(allowed-classes EnumSubsetFilter)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot 888eaada0000000a000000fe8d76da8b
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot functionParameter
-		(type INSTANCE)
-;+		(allowed-classes FunctionParameter)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot firstObject
-		(type INSTANCE)
-;+		(allowed-classes Gene)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot attributeName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot objectMap
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot javaClassName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot journal
-		(type INSTANCE)
-;+		(allowed-classes Journal)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot dataSourceAttribute
-		(type INSTANCE)
-;+		(allowed-classes %3ASLOT)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot levelList
-		(type INSTANCE)
-;+		(allowed-classes EnumLevelList)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot prResp0
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot constraintKeyword
-		(type INSTANCE)
-;+		(allowed-classes Keyword)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot singleParameter
-		(type INSTANCE)
-;+		(allowed-classes)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot switchDisplayName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot metaData
-		(type INSTANCE)
-;+		(allowed-classes Persistible)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Task2Model2_01236
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot r
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot NonIDEnum
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot r1
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot biorelationshipType
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot direction
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot stateMatrixRows
-		(type INSTANCE)
-;+		(allowed-classes StateMatrixRow)
-		(create-accessor read-write))
-	(multislot downregulates
-		(type INSTANCE)
-;+		(allowed-classes BioEntity)
-		(create-accessor read-write))
-	(single-slot jURLabbrev
-;+		(comment "For use with FullText\nscripts.\n\nNot necessary.")
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot startDelayTime
-		(type INSTANCE)
-;+		(allowed-classes OncTime)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot valueMap
-		(type INSTANCE)
-;+		(allowed-classes ValueMapEntry)
-;+		(inverse-slot statementBundlesThatContainMe)
-		(create-accessor read-write))
-	(multislot sentencesAboutThis
-		(type INSTANCE)
-;+		(allowed-classes Sentence)
-		(create-accessor read-write))
-	(single-slot creator
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot startLevel
-		(type INSTANCE)
-;+		(allowed-classes EnumLevel)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot 888eaada00000001000000fe8d577069
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot claimsSupportingMe
-		(type INSTANCE)
-;+		(allowed-classes Claim)
-		(create-accessor read-write))
-	(single-slot valueMapAsDisplayed
-;+		(comment "Manual for now,\nwill be automated through a slot widget.\n\nparameter name + \"=\" + value")
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot communicator
-		(type INSTANCE)
-;+		(allowed-classes Person)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot nParamName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot dayListName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot state
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot endLevel
-		(type INSTANCE)
-;+		(allowed-classes EnumLevel)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot topLevelDisplayName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot encodingsOfMe
-		(type INSTANCE)
-;+		(allowed-classes Encoding)
-		(create-accessor read-write))
-	(single-slot operator
-		(type INSTANCE)
-;+		(allowed-classes TcapOperator)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot actions
-		(type INSTANCE)
-;+		(allowed-classes OncAction)
-;+		(inverse-slot codeBundlesContainingMe)
-		(create-accessor read-write))
-	(single-slot dataSource
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot sampleSize
-		(type INTEGER)
-		(range 0 %3FVARIABLE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot probabilities
-		(type INSTANCE)
-;+		(allowed-classes BooleanExpression)
-		(create-accessor read-write))
-	(single-slot enum
-		(type INSTANCE)
-;+		(allowed-classes)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot numericList
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot scheduleToModify
-		(type INSTANCE)
-;+		(allowed-classes ScheduleEventAction)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot statementBundlesWithValueMaps
-		(type INSTANCE)
-;+		(allowed-classes StatementBundle)
-		(create-accessor read-write))
-	(multislot consequences
-		(type INSTANCE)
-;+		(allowed-classes Interpretation Consequence)
-		(create-accessor read-write))
-	(multislot relevanceAssessments
-		(type INSTANCE)
-;+		(allowed-classes RelevanceItem)
-		(create-accessor read-write))
-	(single-slot defaultLevel
-		(type INSTANCE)
-;+		(allowed-classes EnumLevel)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot modelControllersUsingMe
-		(type INSTANCE)
-;+		(allowed-classes ModelController)
-;+		(inverse-slot submodelGroups)
-		(create-accessor read-write))
-	(multislot molecules
-		(type INSTANCE)
-;+		(allowed-classes Molecule MechOutput)
-		(create-accessor read-write))
-	(single-slot clonedParameter
-		(type INSTANCE)
-;+		(allowed-classes Parameter)
-;+		(cardinality 0 1)
-;+		(inverse-slot valueMapEntriesContainingMe)
-		(create-accessor read-write))
-	(single-slot outcome
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot statementBundlesBasedOnMe
-		(type INSTANCE)
-;+		(allowed-classes StatementBundle)
-;+		(inverse-slot statementTemplate)
-		(create-accessor read-write))
-	(multislot describedInstances
-		(type INSTANCE)
-;+		(allowed-classes ModelBuilderMetaData CancerEntity Persistible BrowserNode InformationEntity ModelEntity)
-;+		(inverse-slot keywords)
-		(create-accessor read-write))
-	(multislot interpretationsIEncode
-		(type INSTANCE)
-;+		(allowed-classes Interpretation)
-;+		(inverse-slot encodingsImplementingMe)
-		(create-accessor read-write))
-	(single-slot tcap2id
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot valueAsDisplayed
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot iconName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot characteristicDisplayName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot bindsTo
-		(type INSTANCE)
-;+		(allowed-classes BioEntity)
-		(create-accessor read-write))
-	(single-slot getMethodName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot codesFor
-		(type INSTANCE)
-;+		(allowed-classes Molecule)
-		(create-accessor read-write))
-	(single-slot eventType
-		(type INTEGER)
-		(default 1)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot singleParameterList
-		(type INSTANCE)
-;+		(allowed-classes)
-		(create-accessor read-write))
-	(single-slot pickerType
-;+		(comment "boolean expression\nassignment\nor instantiation	")
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot oncEvent
-;+		(comment "CAUTION:  Re-re-named this to start with lowercase.")
-		(type INSTANCE)
-;+		(allowed-classes EventDeclaration)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot knowledgeNugget
-		(type INSTANCE)
-;+		(allowed-classes KnowledgeNugget)
-;+		(cardinality 0 1)
-;+		(inverse-slot assessments)
-		(create-accessor read-write))
-	(single-slot keywordFilter
-		(type INSTANCE)
-;+		(allowed-classes KeywordFilter)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Task2Model2_01248
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot submodelGroups
+	(multislot subModelGroups
 		(type INSTANCE)
 ;+		(allowed-classes SubModelGroup)
-;+		(inverse-slot modelControllersUsingMe)
-		(create-accessor read-write))
-	(single-slot quoteSection
-		(type SYMBOL)
-		(allowed-values Abstract Introduction Methods Results Discussion)
-		(default Abstract)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot n
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot isHeading
-;+		(comment "	")
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot recur
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-		(default FALSE)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(multislot isRegulatedBy
-		(type INSTANCE)
-;+		(allowed-classes Molecule)
-		(create-accessor read-write))
-	(single-slot shortName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot isDefaultValue
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot shortDescription
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot defaultDisplayName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot assessmentItemType
-		(type INSTANCE)
-;+		(allowed-classes AssessmentItemType)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot whenToCheckRule
-		(type INSTANCE)
-;+		(allowed-classes)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot manifest
-		(type SYMBOL)
-;+		(allowed-parents)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot processEvent
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-		(default FALSE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot conditionValue
-		(type INSTANCE)
-;+		(allowed-classes Persistible)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot floatValue
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot pubMedURL
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot oncotcap-0323_00220
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot assessments
-		(type INSTANCE)
-;+		(allowed-classes AssessmentItem)
-;+		(inverse-slot knowledgeNugget)
-		(create-accessor read-write))
-	(single-slot positiveDisplayName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot dataSourceAttributeName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot volume
-		(type INTEGER)
-		(range 1 %3FVARIABLE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot sourceNuggets
-		(type INSTANCE)
-;+		(allowed-classes KnowledgeNugget)
-;+		(inverse-slot interpretations)
-		(create-accessor read-write))
-	(multislot evidenceFor
-		(type INSTANCE)
-;+		(allowed-classes Interpretation)
-		(create-accessor read-write))
-	(single-slot updateSection
-;+		(comment "Name of the update method to trigger.")
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot timeChange
-		(type INSTANCE)
-;+		(allowed-classes OncTime)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot clsType
-		(type INSTANCE)
-;+		(allowed-classes %3ACLASS)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot dataSourceObjectList
-		(type INSTANCE)
-;+		(allowed-classes DataSourceObject)
-		(create-accessor read-write))
-	(single-slot 888e66980000000e000000fd2d8ba3b5
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot inverseOfDescribedInstances
-		(type INSTANCE)
-;+		(allowed-classes)
-		(create-accessor read-write))
-	(multislot interpretations
-		(type INSTANCE)
-;+		(allowed-classes Interpretation)
-;+		(inverse-slot sourceNuggets)
-		(create-accessor read-write))
-	(single-slot enumName
-		(type INSTANCE)
-;+		(allowed-classes Keyword)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot basePicker
-		(type INSTANCE)
-;+		(allowed-classes DeclareEnumPicker)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot type
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot keywordInstance
-		(type INSTANCE)
-;+		(allowed-classes Keyword)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot parameter
-		(type INSTANCE)
-;+		(allowed-classes Parameter)
-		(create-accessor read-write))
-	(single-slot modifier
-;+		(comment "Holds code that returns a value that will modify the variable according to the operation appropriate to the class.")
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Task2Model2_01385
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot initializationList
-		(type INSTANCE)
-;+		(allowed-classes DeclareVariable)
-		(create-accessor read-write))
-	(single-slot defaultInitialFloatValue
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot visibleBundles
-		(type INSTANCE)
-;+		(allowed-classes OncTreeNode)
-;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot rParamName
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot modelType
-;+		(comment "bio/setting/validation")
-		(type SYMBOL)
-		(allowed-values Bio Setting Validation)
-;+		(cardinality 0 1)
+	(multislot slotPaths
+		(type INSTANCE)
+;+		(allowed-classes ProtegeSlotPath)
 		(create-accessor read-write))
-	(single-slot journalHomeLink
-		(type STRING)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot variableType
-		(type SYMBOL)
-		(allowed-values POSITIVE SWITCHABLE SWITCHABLE_POSITIVE POSITIVE_INTEGER ENUM)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot submodelType
-		(type SYMBOL)
-		(allowed-values BioPhys Setting)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot IfClause
+	(single-slot shortName
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot timeStamp
-		(type STRING)
-		(default "9/23/2002")
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot oncotcap_00603
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot article
+	(multislot biorelationships
 		(type INSTANCE)
-;+		(allowed-classes Article)
-;+		(cardinality 0 1)
-;+		(inverse-slot weblink)
-		(create-accessor read-write))
-	(single-slot duration
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot modificationType
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot codeValue
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot minimumValue
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot originator
-		(type INSTANCE)
-;+		(allowed-classes Assessor)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot defaultInitialIntValue
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot stateMatrix
-		(type INSTANCE)
-;+		(allowed-classes StateMatrix)
-;+		(cardinality 0 1)
-;+		(inverse-slot conditionalTableParameter)
-		(create-accessor read-write))
-	(multislot inputs
-		(type INSTANCE)
-;+		(allowed-classes Persistible)
-		(create-accessor read-write))
-	(single-slot originalSingleParameter
-		(type INSTANCE)
-;+		(allowed-classes)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot StatementTemplateReverse
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Task2Model2_01364
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot initialState
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot visible
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot alphaParamName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot clonedSingleParameter
-		(type INSTANCE)
-;+		(allowed-classes)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot starterProcess
-		(type INSTANCE)
-;+		(allowed-classes ProcessDeclaration)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot 888e669800000000000000f6f72b3f84
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot clsAttributeType
-		(type INSTANCE)
-;+		(allowed-classes JavaClass)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot maxArguments
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot toggleSwitch
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-		(default FALSE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot codeBundlesContainingMe
-		(type INSTANCE)
-;+		(allowed-classes CodeBundle)
-;+		(cardinality 0 1)
-;+		(inverse-slot actions)
-		(create-accessor read-write))
-	(multislot entities
-		(type INSTANCE)
-;+		(allowed-classes CancerEntity)
-		(create-accessor read-write))
-	(multislot inverseOfQuotesInMe
-		(type INSTANCE)
-;+		(allowed-classes)
-		(create-accessor read-write))
-	(single-slot scheduleStartType
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot baseCategory
-		(type INSTANCE)
-;+		(allowed-classes DeclareCategory)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot oncotcap_00229
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot keywordsOnly
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot valueMapEntriesContainingMe
-		(type INSTANCE)
-;+		(allowed-classes ValueMapEntry)
-;+		(inverse-slot clonedParameter)
-		(create-accessor read-write))
-	(single-slot baseParameter
-		(type INSTANCE)
-;+		(allowed-classes DeclareTwoLevelParameter)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot validationScore
-		(type INTEGER)
-		(range 0 100)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot introScreens
-		(type STRING)
-		(create-accessor read-write))
-	(single-slot oncotcapOntologyVersion
-		(type FLOAT)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot statementBundlesImplementingMe
-		(type INSTANCE)
-;+		(allowed-classes StatementBundle)
-;+		(inverse-slot encodingsIHelpImplement)
-		(create-accessor read-write))
-	(single-slot alpha
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot modification
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot maximumValue
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot children
-		(type INSTANCE)
-;+		(allowed-classes OncTreeNode)
-		(create-accessor read-write))
-	(multislot encodingsInMe
-		(type INSTANCE)
-;+		(allowed-classes Encoding)
-;+		(inverse-slot submodelsIJoin)
-		(create-accessor read-write))
-	(multislot validationScenarios
-		(type INSTANCE)
-;+		(allowed-classes ValidationScenario)
-		(create-accessor read-write))
-	(single-slot attachedCB
-		(type INSTANCE)
-;+		(allowed-classes CodeBundle)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot displayValue
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot inverseOfKeywords
-		(type INSTANCE)
-;+		(allowed-classes Keyword)
-		(create-accessor read-write))
-	(multislot assessmentItems
-		(type INSTANCE)
-;+		(allowed-classes)
+;+		(allowed-classes Biorelationship)
 		(create-accessor read-write))
 	(single-slot slotType
 		(type INSTANCE)
 ;+		(allowed-classes %3ASLOT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot variableDefinitionsAndCodeBundlesContainingMe
-		(type INSTANCE)
-;+		(allowed-classes VariableDefinition CodeBundle)
-;+		(inverse-slot oncProcess)
-		(create-accessor read-write))
-	(single-slot startLevelDisplayName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot conditionalTableParameter
-		(type INSTANCE)
-;+		(allowed-classes ConditionalTableParameter)
-;+		(inverse-slot stateMatrix)
-		(create-accessor read-write))
-	(single-slot leftHandSide
-		(type INSTANCE)
-;+		(allowed-classes Persistible)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot sourceLocatorMethod
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot minimum
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot statements
-		(type INSTANCE)
-;+		(allowed-classes Claim)
-		(create-accessor read-write))
-	(single-slot webscript
-;+		(comment "Could be structured like Actions.\n\nFor now, a String like the\nsourceLocatorMethod slot in FullSourceProvider.")
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot isCodedBy
-		(type INSTANCE)
-;+		(allowed-classes Gene)
-		(create-accessor read-write))
-	(single-slot weblink
-		(type INSTANCE)
-;+		(allowed-classes WebLink)
-;+		(cardinality 0 1)
-;+		(inverse-slot article)
-		(create-accessor read-write))
-	(single-slot statementBundle
-		(type INSTANCE)
-;+		(allowed-classes StatementTemplate)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(multislot slotPaths
-		(type INSTANCE)
-;+		(allowed-classes ProtegeSlotPath)
-		(create-accessor read-write))
-	(single-slot %3AREFERENCES
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot dayList
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Task2Model2_01377
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot childKeywords
-		(type INSTANCE)
-;+		(allowed-classes Keyword)
-;+		(inverse-slot parentKeywords)
-		(create-accessor read-write))
-	(single-slot assessor
-		(type INSTANCE)
-;+		(allowed-classes Person)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot subsetFilter
-		(type INSTANCE)
-;+		(allowed-classes SubsetFilter)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot defaultValueRow
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot outputs
-		(type INSTANCE)
-;+		(allowed-classes Persistible)
-		(create-accessor read-write))
-	(single-slot javaSuperClass
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot betaParamName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot keywords
-		(type INSTANCE)
-;+		(allowed-classes Keyword)
-;+		(inverse-slot describedInstances)
-		(create-accessor read-write))
-	(single-slot ruleSet
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot oncMethod
-		(type INSTANCE)
-;+		(allowed-classes MethodDeclaration SystemDefinedOncMethod)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot rightHandSide
-		(type INSTANCE)
-;+		(allowed-classes Persistible)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot dataSourceAttributeMap
+	(multislot arguments
 		(type STRING)
 		(create-accessor read-write))
-	(single-slot scheduleEndType
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot attributeSubType
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot coursesName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot keyword
-		(type STRING)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(multislot agents
-		(type INSTANCE)
-;+		(allowed-classes Agent)
-		(create-accessor read-write))
-	(single-slot modifiedBy
-;+		(comment "username of last person to edit")
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot genericCode
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot defaultIntegerValue
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot conditions
-		(type INSTANCE)
-;+		(allowed-classes Interpretation Claim)
-		(create-accessor read-write))
-	(multislot args
-		(type STRING)
-		(create-accessor read-write))
-	(single-slot topKeyword
-		(type INSTANCE)
-;+		(allowed-classes Keyword)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot multiple
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot n1
+	(single-slot maximumValue
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -1663,37 +1307,109 @@
 ;+		(cardinality 0 1)
 ;+		(inverse-slot statementBundlesBasedOnMe)
 		(create-accessor read-write))
-	(multislot authors
-		(type INSTANCE)
-;+		(allowed-classes Author)
-		(create-accessor read-write))
-	(single-slot modifyVariableActionsContainingMe
-		(type INSTANCE)
-;+		(allowed-classes ModifyVariableAction)
-;+		(cardinality 0 1)
-;+		(inverse-slot variableModification)
-		(create-accessor read-write))
-	(multislot ActionsContainingMe
-		(type INSTANCE)
-;+		(allowed-classes AddAVariable ModifyVariableAction InitVariableAction)
-;+		(inverse-slot variable)
-		(create-accessor read-write))
-	(multislot statementBundleConfigurations
-		(type INSTANCE)
-;+		(allowed-classes StatementBundleConfiguration)
-		(create-accessor read-write))
-	(single-slot stateMatrixRow
-		(type INSTANCE)
-;+		(allowed-classes StateMatrixRow)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot endDelayTime
-		(type INSTANCE)
-;+		(allowed-classes OncTime)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot name_
+	(single-slot codeValue
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot statementBundlesImplementingMe
+		(type INSTANCE)
+;+		(allowed-classes StatementBundle)
+;+		(inverse-slot encodingsIHelpImplement)
+		(create-accessor read-write))
+	(single-slot outcome
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot variableType
+		(type SYMBOL)
+		(allowed-values POSITIVE SWITCHABLE SWITCHABLE_POSITIVE POSITIVE_INTEGER ENUM)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot encodingsIHelpImplement
+		(type INSTANCE)
+;+		(allowed-classes Encoding)
+;+		(inverse-slot statementBundlesImplementingMe)
+		(create-accessor read-write))
+	(single-slot enumDefinitionsContainingMe
+		(type INSTANCE)
+;+		(allowed-classes)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot children
+		(type INSTANCE)
+;+		(allowed-classes OncTreeNode)
+		(create-accessor read-write))
+	(single-slot isDayList
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot parameter
+		(type INSTANCE)
+;+		(allowed-classes Parameter)
+		(create-accessor read-write))
+	(single-slot type
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot outcomes
+		(type INSTANCE)
+;+		(allowed-classes Persistible)
+		(create-accessor read-write))
+	(multislot describedInstances
+		(type INSTANCE)
+;+		(allowed-classes ModelBuilderMetaData CancerEntity Persistible BrowserNode InformationEntity ModelEntity)
+;+		(inverse-slot keywords)
+		(create-accessor read-write))
+	(single-slot category
+		(type INSTANCE)
+;+		(allowed-classes Keyword)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot statementBundlesBasedOnMe
+		(type INSTANCE)
+;+		(allowed-classes StatementBundle)
+;+		(inverse-slot statementTemplate)
+		(create-accessor read-write))
+	(single-slot IfClause
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot assessmentType
+		(type SYMBOL)
+		(allowed-values CONFIDENCE RELEVANCE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot NonIDEnum
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot endLevel
+		(type INSTANCE)
+;+		(allowed-classes EnumLevel)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot IDEnum
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Task2Model2_01446
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot integerValue
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot assessmentItems
+		(type INSTANCE)
+;+		(allowed-classes)
+		(create-accessor read-write))
+	(single-slot numericList
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot fromCls
@@ -1701,8 +1417,292 @@
 ;+		(allowed-classes %3ACLASS)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot magnitude
-		(type FLOAT)
+	(single-slot n1
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot variableDefinitions
+		(type INSTANCE)
+;+		(allowed-classes VariableDefinition)
+;+		(inverse-slot parametersContainingMe)
+		(create-accessor read-write))
+	(multislot submodelsIJoin
+		(type INSTANCE)
+;+		(allowed-classes SubModel)
+;+		(inverse-slot encodingsInMe)
+		(create-accessor read-write))
+	(single-slot parameterType
+		(type SYMBOL)
+		(allowed-values Float Integer String Positive Switchable_Positive Schedule)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot quotesInMe
+		(type INSTANCE)
+;+		(allowed-classes KnowledgeNugget)
+;+		(inverse-slot informationSource)
+		(create-accessor read-write))
+	(single-slot stringValue
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot biorelationshipType
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot protegeClass
+		(type SYMBOL)
+;+		(allowed-parents Persistible OncTime BooleanExpression StatementTemplate SubsetClass ProtegeSlotPath EventDeclaration CodeBundle Parameter MethodDeclaration StatementBundleConfiguration StatementBundle ValueMapEntry VariableModification EnumLevelList ProcessDeclaration SearchPath OncAction TcapLogicalOperator OncFilter QueryTemplate BrowserNodeWithKeywords ModelConfiguration ProjectInfo ProbabilityTable Keyword TcapOperator EnumLevel VariableDefinition ProtegeClassPath DeclareVariable HelpInfo OncTreeNode ScheduleEventAction ModifyScheduleAction OncActionWithVariable InstantiateOncProcess TriggerEventAction AddGenericCode)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot StatementTemplateReverse
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot inverseOfDescribedInstances
+		(type INSTANCE)
+;+		(allowed-classes)
+		(create-accessor read-write))
+	(single-slot dataSourceAttributeName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot endLevelDisplayName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot instantiationParameters
+		(type STRING)
+		(create-accessor read-write))
+	(single-slot switchState
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot defaultInitialIntValue
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot 888eaada0000000a000000fe8d76da8b
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot ruleSet
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot originator
+		(type INSTANCE)
+;+		(allowed-classes Assessor)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot overridingStringValue
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot isRegulatedBy
+		(type INSTANCE)
+;+		(allowed-classes Molecule)
+		(create-accessor read-write))
+	(single-slot oncotcap_00229
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot clsType
+		(type INSTANCE)
+;+		(allowed-classes %3ACLASS)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot function
+;+		(comment "			")
+		(type INSTANCE)
+;+		(allowed-classes Persistible)
+		(create-accessor read-write))
+	(single-slot prettyName
+;+		(comment "display name		")
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nCourses
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot issue
+		(type INTEGER)
+		(range 1 %3FVARIABLE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot processEvent
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+		(default FALSE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot codeBundlesThatContainMe
+		(type INSTANCE)
+;+		(allowed-classes CodeBundle)
+		(create-accessor read-write))
+	(single-slot informationSource
+		(type INSTANCE)
+;+		(allowed-classes InformationSource)
+;+		(cardinality 0 1)
+;+		(inverse-slot quotesInMe)
+		(create-accessor read-write))
+	(single-slot direction
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot object+to+trigger
+;+		(comment "Example:\n( (Patient)getOncParent() )")
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot assessmentScore
+		(type SYMBOL)
+		(allowed-values low low%2Fmed medium med%2Fhigh high)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot modelType
+;+		(comment "bio/setting/validation")
+		(type SYMBOL)
+		(allowed-values Bio Setting Validation)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot declareVariable
+		(type INSTANCE)
+;+		(allowed-classes DeclareVariable)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot submodelType
+		(type SYMBOL)
+		(allowed-values BioPhys Setting)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot outputs
+		(type INSTANCE)
+;+		(allowed-classes Persistible)
+		(create-accessor read-write))
+	(multislot conditions
+		(type INSTANCE)
+;+		(allowed-classes Interpretation Claim)
+		(create-accessor read-write))
+	(single-slot attachedCB
+		(type INSTANCE)
+;+		(allowed-classes CodeBundle)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot startDelayTime
+		(type INSTANCE)
+;+		(allowed-classes OncTime)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot updateSection
+;+		(comment "Name of the update method to trigger.")
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot timeStamp
+		(type STRING)
+		(default "9/23/2002")
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot orderHint
+;+		(comment "CAUTION:  Re-re-named this to start with lowercase.")
+		(type INTEGER)
+		(range 0 100)
+		(default 50)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot positiveDisplayName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot validationCriteria
+		(type INSTANCE)
+;+		(allowed-classes Interpretation)
+		(create-accessor read-write))
+	(single-slot duration
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot stateMatrixRows
+		(type INSTANCE)
+;+		(allowed-classes StateMatrixRow)
+		(create-accessor read-write))
+	(multislot codesFor
+		(type INSTANCE)
+;+		(allowed-classes Molecule)
+		(create-accessor read-write))
+	(multislot consequences
+		(type INSTANCE)
+;+		(allowed-classes Interpretation Consequence)
+		(create-accessor read-write))
+	(single-slot sentenceText
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot gapTime
+		(type INSTANCE)
+;+		(allowed-classes OncTime)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot state
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot keywordsOnly
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot statementBundles
+		(type INSTANCE)
+;+		(allowed-classes StatementBundle)
+;+		(inverse-slot statementTemplatesUsingMe)
+		(create-accessor read-write))
+	(single-slot keywordFilter
+		(type INSTANCE)
+;+		(allowed-classes KeywordFilter)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot searchPathId
+;+		(comment "name used to retrieve path from KB ")
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot defaultDisplayName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot comment
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot attributeFilter
+		(type INSTANCE)
+;+		(allowed-classes EnumSubsetFilter)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot molecules
+		(type INSTANCE)
+;+		(allowed-classes Molecule MechOutput)
+		(create-accessor read-write))
+	(single-slot singleParameter
+		(type INSTANCE)
+;+		(allowed-classes)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot assessor
+		(type INSTANCE)
+;+		(allowed-classes Person)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot statements
+		(type INSTANCE)
+;+		(allowed-classes Claim)
+		(create-accessor read-write))
+	(single-slot enumValue
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -1729,22 +1729,22 @@
 		(type INSTANCE)
 ;+		(allowed-classes Interpretation Consequence)
 		(create-accessor read-write))
+	(multislot conditions
+		(type INSTANCE)
+;+		(allowed-classes Interpretation Claim)
+		(create-accessor read-write))
 	(multislot evidenceFor
 		(type INSTANCE)
 ;+		(allowed-classes Interpretation)
+		(create-accessor read-write))
+	(multislot clauses
+		(type INSTANCE)
+;+		(allowed-classes RuleClause)
 		(create-accessor read-write))
 	(single-slot whenToCheckRule
 		(type INSTANCE)
 ;+		(allowed-classes)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot conditions
-		(type INSTANCE)
-;+		(allowed-classes Interpretation Claim)
-		(create-accessor read-write))
-	(multislot clauses
-		(type INSTANCE)
-;+		(allowed-classes RuleClause)
 		(create-accessor read-write)))
 
 (defclass RuleBase
@@ -1766,11 +1766,11 @@
 (defclass RuleTriggerEvent
 	(is-a RuleEntity)
 	(role concrete)
-	(single-slot name_
+	(single-slot description
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot description
+	(single-slot name_
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
@@ -1778,27 +1778,27 @@
 (defclass CodeBundleWithValueMaps
 	(is-a ModelEntity)
 	(role concrete)
+	(multislot valueMap
+		(type INSTANCE)
+;+		(allowed-classes ValueMap)
+		(create-accessor read-write))
 	(single-slot codeBundle
 		(type INSTANCE)
 ;+		(allowed-classes CodeBundle)
 ;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(multislot valueMap
-		(type INSTANCE)
-;+		(allowed-classes ValueMap)
 		(create-accessor read-write)))
 
 (defclass ValueMap "What structure should \"value\" have?"
 	(is-a ModelEntity)
 	(role concrete)
+	(multislot parameter
+		(type INSTANCE)
+;+		(allowed-classes Parameter)
+		(create-accessor read-write))
 	(single-slot valueMapAsDisplayed
 ;+		(comment "Manual for now,\nwill be automated through a slot widget.\n\nparameter name + \"=\" + value")
 		(type STRING)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot parameter
-		(type INSTANCE)
-;+		(allowed-classes Parameter)
 		(create-accessor read-write))
 	(single-slot value
 ;+		(comment "An expression that returns a value.")
@@ -1813,12 +1813,12 @@
 (defclass UIDWindow
 	(is-a ModelUIDEntity)
 	(role concrete)
+	(multislot instantiationParameters
+		(type STRING)
+		(create-accessor read-write))
 	(single-slot name_
 		(type STRING)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot instantiationParameters
-		(type STRING)
 		(create-accessor read-write)))
 
 (defclass OutputWindow
@@ -1844,13 +1844,13 @@
 (defclass OutputScreen
 	(is-a ModelEntity)
 	(role concrete)
-	(single-slot name_
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot javaClass
 		(type INSTANCE)
 ;+		(allowed-classes JavaClass)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot name_
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -1878,13 +1878,13 @@
 (defclass CancerEntity "You cannot use \":NAME\"\nas a browser key.\n"
 	(is-a USER)
 	(role abstract)
-	(single-slot name_
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(multislot sentencesAboutThis
 		(type INSTANCE)
 ;+		(allowed-classes Sentence)
+		(create-accessor read-write))
+	(single-slot name_
+		(type STRING)
+;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass BioEntity
@@ -1902,47 +1902,47 @@
 (defclass CodesFor "A gene translates to its protein product"
 	(is-a Biorelationship)
 	(role concrete)
-	(single-slot firstObject
-		(type INSTANCE)
-;+		(allowed-classes Gene)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot secondObject
 		(type INSTANCE)
 ;+		(allowed-classes Molecule)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot firstObject
+		(type INSTANCE)
+;+		(allowed-classes Gene)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass Regulates
 	(is-a Biorelationship)
 	(role concrete)
-	(single-slot firstObject
-		(type INSTANCE)
-;+		(allowed-classes Molecule)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot secondObject
 		(type INSTANCE)
 ;+		(allowed-classes Gene MechOutput)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot direction
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot magnitude
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot direction
-		(type STRING)
+	(single-slot firstObject
+		(type INSTANCE)
+;+		(allowed-classes Molecule)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass MechOutput
 	(is-a BioEntity)
 	(role concrete)
-	(single-slot magnitude
+	(single-slot direction
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot direction
+	(single-slot magnitude
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
@@ -1962,11 +1962,11 @@
 (defclass Molecule
 	(is-a BioEntity)
 	(role concrete)
-	(multislot bindsTo
+	(multislot activates
 		(type INSTANCE)
 ;+		(allowed-classes BioEntity)
 		(create-accessor read-write))
-	(multislot deactivates
+	(multislot downregulates
 		(type INSTANCE)
 ;+		(allowed-classes BioEntity)
 		(create-accessor read-write))
@@ -1974,11 +1974,11 @@
 		(type INSTANCE)
 ;+		(allowed-classes MolecularNetwork)
 		(create-accessor read-write))
-	(multislot downregulates
+	(multislot deactivates
 		(type INSTANCE)
 ;+		(allowed-classes BioEntity)
 		(create-accessor read-write))
-	(multislot activates
+	(multislot bindsTo
 		(type INSTANCE)
 ;+		(allowed-classes BioEntity)
 		(create-accessor read-write))
@@ -2049,14 +2049,14 @@
 (defclass DataSourceObject
 	(is-a ModelBuilderMetaData)
 	(role concrete)
+	(multislot attributeList
+		(type INSTANCE)
+;+		(allowed-classes DataSourceAttributeMap)
+		(create-accessor read-write))
 	(single-slot protegeClass
 		(type SYMBOL)
 ;+		(allowed-parents Persistible OncTime BooleanExpression StatementTemplate SubsetClass ProtegeSlotPath EventDeclaration CodeBundle Parameter MethodDeclaration StatementBundleConfiguration StatementBundle ValueMapEntry VariableModification EnumLevelList ProcessDeclaration SearchPath OncAction TcapLogicalOperator OncFilter QueryTemplate BrowserNodeWithKeywords ModelConfiguration ProjectInfo ProbabilityTable Keyword TcapOperator EnumLevel VariableDefinition ProtegeClassPath DeclareVariable HelpInfo OncTreeNode ScheduleEventAction ModifyScheduleAction OncActionWithVariable InstantiateOncProcess TriggerEventAction AddGenericCode)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot attributeList
-		(type INSTANCE)
-;+		(allowed-classes DataSourceAttributeMap)
 		(create-accessor read-write)))
 
 (defclass DataSourceAttributeMap
@@ -2066,14 +2066,18 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot dataSourceAttribute
+	(single-slot clsAttributeSubType
 		(type INSTANCE)
-;+		(allowed-classes %3ASLOT)
+;+		(allowed-classes JavaClass)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot clsAttributeType
 		(type INSTANCE)
 ;+		(allowed-classes JavaClass)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot attributeName
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot getMethodName
@@ -2084,31 +2088,36 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot clsAttributeSubType
+	(single-slot dataSourceAttribute
 		(type INSTANCE)
-;+		(allowed-classes JavaClass)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot attributeName
-		(type STRING)
+;+		(allowed-classes %3ASLOT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass DataSourceMap
 	(is-a ModelBuilderMetaData)
 	(role concrete)
-	(single-slot javaClassName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(multislot dataSourceObjectList
 		(type INSTANCE)
 ;+		(allowed-classes DataSourceObject)
+		(create-accessor read-write))
+	(single-slot javaClassName
+		(type STRING)
+;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass JavaClass
 	(is-a ModelBuilderMetaData)
 	(role concrete)
+	(single-slot prettyName
+;+		(comment "display name		")
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot iconName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot classAndPackage
 		(type STRING)
 ;+		(cardinality 0 1)
@@ -2119,32 +2128,23 @@
 ;+		(allowed-classes OntologyCategory)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot prettyName
-;+		(comment "display name		")
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot iconName
-		(type STRING)
+	(single-slot index
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot name_
 		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot index
-		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass OntologyCategory
 	(is-a ModelBuilderMetaData)
 	(role concrete)
-	(single-slot minimumValue
+	(single-slot maximumValue
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot maximumValue
+	(single-slot minimumValue
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -2156,21 +2156,8 @@
 (defclass Timestampable
 	(is-a USER)
 	(role concrete)
-	(single-slot versionNumber
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot oncotcapOntologyVersion
 		(type FLOAT)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot modifier
-;+		(comment "Holds code that returns a value that will modify the variable according to the operation appropriate to the class.")
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot creationTime
-		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot modificationTime
@@ -2185,6 +2172,19 @@
 		(create-accessor read-write))
 	(single-slot creator
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot modifier
+;+		(comment "Holds code that returns a value that will modify the variable according to the operation appropriate to the class.")
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot creationTime
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot versionNumber
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -2209,12 +2209,12 @@
 (defclass SystemDefinedEventDeclaration
 	(is-a EventDeclaration)
 	(role concrete)
-	(single-slot tcap2id
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot tcap2abbreviation
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot tcap2id
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -2237,14 +2237,14 @@
 (defclass OncFilter
 	(is-a Persistible)
 	(role concrete)
-	(single-slot rootNode
-		(type INSTANCE)
-;+		(allowed-classes OncTreeNode)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot keywordsOnly
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot rootNode
+		(type INSTANCE)
+;+		(allowed-classes OncTreeNode)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -2268,6 +2268,11 @@
 (defclass OncTreeNode
 	(is-a Persistible)
 	(role concrete)
+	(single-slot metaData
+		(type INSTANCE)
+;+		(allowed-classes Persistible)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot userObject
 		(type INSTANCE)
 ;+		(allowed-classes Persistible)
@@ -2276,11 +2281,6 @@
 	(multislot children
 		(type INSTANCE)
 ;+		(allowed-classes OncTreeNode)
-		(create-accessor read-write))
-	(single-slot metaData
-		(type INSTANCE)
-;+		(allowed-classes Persistible)
-;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass OncTime
@@ -2323,27 +2323,27 @@
 ;+		(allowed-classes Parameter)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot statementBundlesThatContainMe
-		(type INSTANCE)
-;+		(allowed-classes StatementBundle)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot originalParameter
 		(type INSTANCE)
 ;+		(allowed-classes Parameter)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot statementBundlesThatContainMe
+		(type INSTANCE)
+;+		(allowed-classes StatementBundle)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass DeclareVariable
 	(is-a Persistible AbstractVariableDefinition)
 	(role abstract)
-	(single-slot initialValueString
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(multislot ActionsContainingMe
 		(type INSTANCE)
 ;+		(allowed-classes AddAVariable ModifyVariableAction InitVariableAction)
+		(create-accessor read-write))
+	(single-slot initialValueString
+		(type STRING)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot name_
 		(type STRING)
@@ -2370,12 +2370,13 @@
 (defclass DeclareEnum
 	(is-a DeclareVariable)
 	(role concrete)
-	(single-slot enumValue
+	(single-slot oncotcap_00603
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot oncotcap_00603
-		(type STRING)
+	(single-slot NonIDEnum
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot IDEnum
@@ -2388,23 +2389,22 @@
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot NonIDEnum
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
+	(single-slot enumValue
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass QueryTemplate
 	(is-a Persistible)
 	(role concrete)
+	(multislot parameter
+		(type INSTANCE)
+;+		(allowed-classes Parameter)
+		(create-accessor read-write))
 	(single-slot webscript
 ;+		(comment "Could be structured like Actions.\n\nFor now, a String like the\nsourceLocatorMethod slot in FullSourceProvider.")
 		(type STRING)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot parameter
-		(type INSTANCE)
-;+		(allowed-classes Parameter)
 		(create-accessor read-write))
 	(single-slot statementHTML
 ;+		(comment "This is the text with embedded variables in HTML format")
@@ -2420,14 +2420,14 @@
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot multiple
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot statementBundles
 		(type INSTANCE)
 ;+		(allowed-classes StatementBundle)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot multiple
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot visible
@@ -2439,19 +2439,23 @@
 (defclass ModelConfiguration
 	(is-a Persistible)
 	(role concrete)
-	(multislot statementBundleConfigurations
-		(type INSTANCE)
-;+		(allowed-classes StatementBundleConfiguration)
-		(create-accessor read-write))
 	(single-slot visibleBundles
 		(type INSTANCE)
 ;+		(allowed-classes OncTreeNode)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot statementBundleConfigurations
+		(type INSTANCE)
+;+		(allowed-classes StatementBundleConfiguration)
 		(create-accessor read-write)))
 
 (defclass HelpInfo
 	(is-a Persistible)
 	(role concrete)
+	(single-slot infoText
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot type
 		(type INTEGER)
 ;+		(cardinality 0 1)
@@ -2459,16 +2463,12 @@
 	(single-slot shortDescription
 		(type STRING)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot infoText
-		(type STRING)
-;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass BooleanExpression
 	(is-a Persistible)
 	(role concrete)
-	(single-slot rightHandSide
+	(single-slot leftHandSide
 		(type INSTANCE)
 ;+		(allowed-classes Persistible)
 ;+		(cardinality 0 1)
@@ -2478,7 +2478,7 @@
 ;+		(allowed-classes TcapOperator)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot leftHandSide
+	(single-slot rightHandSide
 		(type INSTANCE)
 ;+		(allowed-classes Persistible)
 ;+		(cardinality 0 1)
@@ -2495,26 +2495,17 @@
 (defclass VariableDefinition
 	(is-a Persistible AbstractVariableDefinition)
 	(role concrete)
-	(single-slot oncProcess
-		(type INSTANCE)
-;+		(allowed-classes ProcessDeclaration)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot parametersContainingMe
 		(type INSTANCE)
 ;+		(allowed-classes Parameter)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot defaultValue
-		(type STRING)
+	(single-slot oncProcess
+		(type INSTANCE)
+;+		(allowed-classes ProcessDeclaration)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot fromPropFile
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot variableName
+	(single-slot variableType
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -2522,7 +2513,16 @@
 		(type INSTANCE)
 ;+		(allowed-classes OncActionWithVariable)
 		(create-accessor read-write))
-	(single-slot variableType
+	(single-slot fromPropFile
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot defaultValue
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot variableName
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
@@ -2535,11 +2535,6 @@
 ;+		(allowed-classes Keyword)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot defaultLevel
-		(type INSTANCE)
-;+		(allowed-classes EnumLevel)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot idEnum
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
@@ -2548,6 +2543,11 @@
 	(single-slot levelList
 		(type INSTANCE)
 ;+		(allowed-classes EnumLevelList)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot defaultLevel
+		(type INSTANCE)
+;+		(allowed-classes EnumLevel)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -2604,16 +2604,6 @@
 (defclass SearchPath "Path to override any default paths taken between two classes"
 	(is-a Persistible)
 	(role concrete)
-	(single-slot searchPathId
-;+		(comment "name used to retrieve path from KB ")
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot clsPaths
-		(type INSTANCE)
-;+		(allowed-classes ProtegeClassPath)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot toCls
 		(type INSTANCE)
 ;+		(allowed-classes %3ACLASS)
@@ -2622,6 +2612,16 @@
 	(single-slot fromCls
 		(type INSTANCE)
 ;+		(allowed-classes %3ACLASS)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot clsPaths
+		(type INSTANCE)
+;+		(allowed-classes ProtegeClassPath)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot searchPathId
+;+		(comment "name used to retrieve path from KB ")
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -2645,14 +2645,14 @@
 (defclass ProtegeSlotPath
 	(is-a Persistible)
 	(role concrete)
+	(multislot clsPaths
+		(type INSTANCE)
+;+		(allowed-classes ProtegeClassPath)
+		(create-accessor read-write))
 	(single-slot slotType
 		(type INSTANCE)
 ;+		(allowed-classes %3ASLOT)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot clsPaths
-		(type INSTANCE)
-;+		(allowed-classes ProtegeClassPath)
 		(create-accessor read-write))
 	(single-slot name_
 		(type STRING)
@@ -2666,13 +2666,13 @@
 (defclass ProbabilityTable
 	(is-a Persistible)
 	(role concrete)
-	(multislot probabilities
-		(type INSTANCE)
-;+		(allowed-classes BooleanExpression)
-		(create-accessor read-write))
 	(single-slot defaultValueRow
 		(type INTEGER)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot probabilities
+		(type INSTANCE)
+;+		(allowed-classes BooleanExpression)
 		(create-accessor read-write)))
 
 (defclass StateMatrix
@@ -2705,8 +2705,9 @@
 (defclass ConditionalOutcome
 	(is-a Persistible)
 	(role concrete)
-	(single-slot outcome
-		(type STRING)
+	(single-slot stateMatrixRow
+		(type INSTANCE)
+;+		(allowed-classes StateMatrixRow)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot conditionValue
@@ -2719,9 +2720,8 @@
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot stateMatrixRow
-		(type INSTANCE)
-;+		(allowed-classes StateMatrixRow)
+	(single-slot outcome
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -2737,11 +2737,6 @@
 (defclass ConditionalDiscreteStateFunction
 	(is-a Persistible)
 	(role concrete)
-	(single-slot functionParameter
-		(type INSTANCE)
-;+		(allowed-classes FunctionParameter)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot conditionValue
 		(type INSTANCE)
 ;+		(allowed-classes Persistible)
@@ -2750,6 +2745,11 @@
 	(multislot outcomes
 		(type INSTANCE)
 ;+		(allowed-classes ConditionalOutcome)
+		(create-accessor read-write))
+	(single-slot functionParameter
+		(type INSTANCE)
+;+		(allowed-classes FunctionParameter)
+;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass InformationEntity
@@ -2763,15 +2763,15 @@
 (defclass Assessment
 	(is-a AssessmentEntity)
 	(role abstract)
-	(single-slot timeStamp
-		(type STRING)
-		(default "9/23/2002")
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot problemContext
 		(type INSTANCE)
 ;+		(allowed-classes)
 ;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot timeStamp
+		(type STRING)
+		(default "9/23/2002")
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot assessor
 		(type INSTANCE)
@@ -2790,24 +2790,9 @@
 (defclass AssessmentItem
 	(is-a AssessmentEntity Persistible)
 	(role concrete)
-	(single-slot assessmentType
-		(type SYMBOL)
-;+		(allowed-parents Assessment)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot timeStamp
-		(type STRING)
-		(default "9/23/2002")
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot assessmentScore
-		(type SYMBOL)
-		(allowed-values low low%2Fmed medium med%2Fhigh high)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot knowledgeNugget
+	(single-slot assessmentItemType
 		(type INSTANCE)
-;+		(allowed-classes KnowledgeNugget)
+;+		(allowed-classes AssessmentItemType)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot problemContext
@@ -2815,9 +2800,23 @@
 ;+		(allowed-classes)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot assessmentItemType
-		(type INSTANCE)
-;+		(allowed-classes AssessmentItemType)
+	(single-slot timeStamp
+		(type STRING)
+		(default "9/23/2002")
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot assessmentType
+		(type SYMBOL)
+;+		(allowed-parents Assessment)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot comment
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot assessmentScore
+		(type SYMBOL)
+		(allowed-values low low%2Fmed medium med%2Fhigh high)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot assessor
@@ -2825,49 +2824,50 @@
 ;+		(allowed-classes Person)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot comment
-		(type STRING)
+	(single-slot knowledgeNugget
+		(type INSTANCE)
+;+		(allowed-classes KnowledgeNugget)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass ConfidenceItem
 	(is-a AssessmentItem)
 	(role concrete)
+	(single-slot assessmentItemType
+		(type INSTANCE)
+;+		(allowed-classes ConfidenceAssessmentType)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot assessmentType
 		(type SYMBOL)
 		(allowed-values CONFIDENCE)
 		(default CONFIDENCE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot assessmentItemType
-		(type INSTANCE)
-;+		(allowed-classes ConfidenceAssessmentType)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass RelevanceItem
 	(is-a AssessmentItem)
 	(role concrete)
+	(single-slot assessmentItemType
+		(type INSTANCE)
+;+		(allowed-classes RelevanceAssessmentType)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot assessmentType
 		(type SYMBOL)
 		(allowed-values RELEVANCE)
 		(default RELEVANCE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot assessmentItemType
-		(type INSTANCE)
-;+		(allowed-classes RelevanceAssessmentType)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass AssessmentItemType
 	(is-a AssessmentEntity Persistible)
 	(role concrete)
-	(single-slot name_
+	(single-slot description
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot description
+	(single-slot name_
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
@@ -2903,11 +2903,12 @@
 (defclass Journal
 	(is-a InformationSourceEntity)
 	(role concrete)
-	(single-slot abbreviation
+	(single-slot sourceLocatorMethod
+;+		(comment "Full Text service will look here first.  If blank, then it traces through fullSource Provider.")
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot name_
+	(single-slot abbreviation
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -2925,8 +2926,7 @@
 ;+		(allowed-classes FullSourceProvider)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot sourceLocatorMethod
-;+		(comment "Full Text service will look here first.  If blank, then it traces through fullSource Provider.")
+	(single-slot name_
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
@@ -2934,6 +2934,10 @@
 (defclass WebLink
 	(is-a InformationSourceEntity)
 	(role concrete)
+	(single-slot fullTextSourceLink
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot pubMedURL
 		(type STRING)
 ;+		(cardinality 0 1)
@@ -2946,20 +2950,16 @@
 		(type INSTANCE)
 ;+		(allowed-classes Article)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot fullTextSourceLink
-		(type STRING)
-;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass FullSourceProvider
 	(is-a InformationSourceEntity)
 	(role concrete)
-	(single-slot name_
+	(single-slot sourceLocatorMethod
 		(type STRING)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot sourceLocatorMethod
+	(single-slot name_
 		(type STRING)
 ;+		(cardinality 1 1)
 		(create-accessor read-write)))
@@ -2975,21 +2975,21 @@
 (defclass Claim
 	(is-a Sentence)
 	(role concrete)
-	(multislot refinements
+	(multislot interpretationsOfMe
 		(type INSTANCE)
-;+		(allowed-classes Claim)
-		(create-accessor read-write))
-	(multislot assessments
-		(type INSTANCE)
-;+		(allowed-classes Assessment)
+;+		(allowed-classes Interpretation)
 		(create-accessor read-write))
 	(multislot infoSources
 		(type INSTANCE)
 ;+		(allowed-classes InformationSource)
 		(create-accessor read-write))
-	(multislot interpretationsOfMe
+	(multislot assessments
 		(type INSTANCE)
-;+		(allowed-classes Interpretation)
+;+		(allowed-classes Assessment)
+		(create-accessor read-write))
+	(multislot refinements
+		(type INSTANCE)
+;+		(allowed-classes Claim)
 		(create-accessor read-write)))
 
 (defclass Evidence
@@ -3055,13 +3055,6 @@
 (defclass ValidationScenario "This is a modeling set-up to be used for validation.\nIt represents an actual clinical trial, a \"typical\" patient with an expert's \"personal communication\" as the validation data, or some other experiment or observation."
 	(is-a ValidationEntity)
 	(role concrete)
-	(multislot %3ADOCUMENTATION
-		(type STRING)
-		(create-accessor read-write))
-	(multislot validationCriteria
-		(type INSTANCE)
-;+		(allowed-classes Interpretation)
-		(create-accessor read-write))
 	(single-slot %3ANAME
 		(type STRING)
 ;+		(cardinality 0 1)
@@ -3070,6 +3063,13 @@
 		(type INTEGER)
 		(range 0 100)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot %3ADOCUMENTATION
+		(type STRING)
+		(create-accessor read-write))
+	(multislot validationCriteria
+		(type INSTANCE)
+;+		(allowed-classes Interpretation)
 		(create-accessor read-write)))
 
 (defclass ValidationCriterion
@@ -3103,10 +3103,6 @@
 (defclass KnowledgeNugget
 	(is-a InformationSourceEntity BrowserNodeWithKeywords)
 	(role abstract)
-	(multislot relevanceAssessments
-		(type INSTANCE)
-;+		(allowed-classes RelevanceItem)
-		(create-accessor read-write))
 	(multislot confidenceAssessments
 		(type INSTANCE)
 ;+		(allowed-classes ConfidenceItem)
@@ -3115,14 +3111,18 @@
 		(type INSTANCE)
 ;+		(allowed-classes Interpretation)
 		(create-accessor read-write))
-	(multislot assessments
-		(type INSTANCE)
-;+		(allowed-classes AssessmentItem)
-		(create-accessor read-write))
 	(single-slot informationSource
 		(type INSTANCE)
 ;+		(allowed-classes InformationSource)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot relevanceAssessments
+		(type INSTANCE)
+;+		(allowed-classes RelevanceItem)
+		(create-accessor read-write))
+	(multislot assessments
+		(type INSTANCE)
+;+		(allowed-classes AssessmentItem)
 		(create-accessor read-write)))
 
 (defclass QuoteNugget
@@ -3132,15 +3132,15 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot quote
-		(type STRING)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
 	(single-slot quoteSection
 		(type SYMBOL)
 		(allowed-values Abstract Introduction Methods Results Discussion)
 		(default Abstract)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot quote
+		(type STRING)
+;+		(cardinality 1 1)
 		(create-accessor read-write)))
 
 (defclass DiagramNugget
@@ -3150,13 +3150,13 @@
 (defclass Interpretation
 	(is-a Sentence BrowserNodeWithKeywords)
 	(role concrete)
-	(multislot sourceNuggets
-		(type INSTANCE)
-;+		(allowed-classes KnowledgeNugget)
-		(create-accessor read-write))
 	(multislot encodingsImplementingMe
 		(type INSTANCE)
 ;+		(allowed-classes Encoding)
+		(create-accessor read-write))
+	(multislot sourceNuggets
+		(type INSTANCE)
+;+		(allowed-classes KnowledgeNugget)
 		(create-accessor read-write)))
 
 (defclass Encoding "better name than implement!\n\"encoding\"?\n"
@@ -3166,13 +3166,13 @@
 		(type INSTANCE)
 ;+		(allowed-classes StatementBundle)
 		(create-accessor read-write))
-	(multislot interpretationsIEncode
-		(type INSTANCE)
-;+		(allowed-classes Interpretation)
-		(create-accessor read-write))
 	(multislot submodelsIJoin
 		(type INSTANCE)
 ;+		(allowed-classes SubModel)
+		(create-accessor read-write))
+	(multislot interpretationsIEncode
+		(type INSTANCE)
+;+		(allowed-classes Interpretation)
 		(create-accessor read-write))
 	(single-slot modelType
 ;+		(comment "bio/setting/validation")
@@ -3184,12 +3184,18 @@
 (defclass ModelController
 	(is-a BrowserNodeWithKeywords ModelEntity)
 	(role abstract)
+	(multislot submodelGroups
+		(type INSTANCE)
+;+		(allowed-classes SubModelGroup)
+		(create-accessor read-write))
+	(single-slot starterProcess
+		(type INSTANCE)
+;+		(allowed-classes ProcessDeclaration)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot modelControllerName
 		(type STRING)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot outputScreens
-		(type STRING)
 		(create-accessor read-write))
 	(multislot introScreens
 		(type STRING)
@@ -3199,14 +3205,8 @@
 ;+		(allowed-classes ModelConfiguration)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot submodelGroups
-		(type INSTANCE)
-;+		(allowed-classes SubModelGroup)
-		(create-accessor read-write))
-	(single-slot starterProcess
-		(type INSTANCE)
-;+		(allowed-classes ProcessDeclaration)
-;+		(cardinality 0 1)
+	(multislot outputScreens
+		(type STRING)
 		(create-accessor read-write)))
 
 (defclass InformationSource
@@ -3250,19 +3250,19 @@
 (defclass Article
 	(is-a InformationSource)
 	(role concrete)
+	(multislot authors
+		(type INSTANCE)
+;+		(allowed-classes Author)
+		(create-accessor read-write))
 	(single-slot journalAsString
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot volume
-		(type INTEGER)
-		(range 1 %3FVARIABLE)
+	(single-slot pubMedURL
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot fullSourceURL
-		(type STRING)
-		(create-accessor read-write))
-	(single-slot year
+	(single-slot PMID
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -3271,34 +3271,34 @@
 ;+		(allowed-classes Journal)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot weblink
-		(type INSTANCE)
-;+		(allowed-classes WebLink)
+	(single-slot pages
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot pubMedURL
-		(type STRING)
+	(single-slot volume
+		(type INTEGER)
+		(range 1 %3FVARIABLE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot issue
+		(type INTEGER)
+		(range 1 %3FVARIABLE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot year
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot title
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot authors
-		(type INSTANCE)
-;+		(allowed-classes Author)
-		(create-accessor read-write))
-	(single-slot PMID
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot pages
+	(multislot fullSourceURL
 		(type STRING)
-;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot issue
-		(type INTEGER)
-		(range 1 %3FVARIABLE)
+	(single-slot weblink
+		(type INSTANCE)
+;+		(allowed-classes WebLink)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -3322,27 +3322,37 @@
 		(type INSTANCE)
 ;+		(allowed-classes Encoding)
 		(create-accessor read-write))
-	(single-slot name_
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot modelType
 ;+		(comment "bio/setting/validation")
 		(type SYMBOL)
 		(allowed-values Bio Setting Validation)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot name_
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass StatementBundle
 	(is-a ModelEntity Persistible BrowserNodeWithKeywords)
 	(role concrete)
-	(multislot statementTemplatesUsingMe
+	(multislot valueMap
 		(type INSTANCE)
-;+		(allowed-classes StatementTemplate)
+;+		(allowed-classes ValueMapEntry)
 		(create-accessor read-write))
 	(single-slot shortName
 		(type STRING)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot statementTemplate
+		(type INSTANCE)
+;+		(allowed-classes StatementTemplate)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot statementHTML
+;+		(comment "This is the text with embedded variables in HTML format")
+		(type STRING)
+;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(multislot helpInfo
 		(type INSTANCE)
@@ -3352,35 +3362,17 @@
 		(type INSTANCE)
 ;+		(allowed-classes Encoding)
 		(create-accessor read-write))
-	(multislot valueMap
-		(type INSTANCE)
-;+		(allowed-classes ValueMapEntry)
-		(create-accessor read-write))
-	(single-slot statementHTML
-;+		(comment "This is the text with embedded variables in HTML format")
-		(type STRING)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot statementTemplate
+	(multislot statementTemplatesUsingMe
 		(type INSTANCE)
 ;+		(allowed-classes StatementTemplate)
-;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass StatementTemplate
 	(is-a ModelEntity BrowserNodeWithKeywords Persistible)
 	(role concrete)
-	(multislot codeBundles
+	(multislot parameter
 		(type INSTANCE)
-;+		(allowed-classes CodeBundle)
-		(create-accessor read-write))
-	(multislot statementBundlesBasedOnMe
-		(type INSTANCE)
-;+		(allowed-classes StatementBundle)
-		(create-accessor read-write))
-	(multislot statementBundles
-		(type INSTANCE)
-;+		(allowed-classes StatementBundle)
+;+		(allowed-classes Parameter)
 		(create-accessor read-write))
 	(single-slot readyToUse
 ;+		(comment "		")
@@ -3389,26 +3381,31 @@
 		(default FALSE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot parameter
+	(multislot statementBundlesBasedOnMe
 		(type INSTANCE)
-;+		(allowed-classes Parameter)
+;+		(allowed-classes StatementBundle)
 		(create-accessor read-write))
 	(single-slot statementHTML
 ;+		(comment "This is the text with embedded variables in HTML format")
 		(type STRING)
 ;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot codeBundles
+		(type INSTANCE)
+;+		(allowed-classes CodeBundle)
+		(create-accessor read-write))
+	(multislot statementBundles
+		(type INSTANCE)
+;+		(allowed-classes StatementBundle)
 		(create-accessor read-write)))
 
 (defclass CodeBundle
 	(is-a ModelEntity BrowserNodeWithKeywords Persistible)
 	(role concrete)
-	(single-slot IfClause
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot oncMethod
+	(single-slot oncEvent
+;+		(comment "CAUTION:  Re-re-named this to start with lowercase.")
 		(type INSTANCE)
-;+		(allowed-classes MethodDeclaration SystemDefinedOncMethod)
+;+		(allowed-classes EventDeclaration)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot statementTemplateContainingMe
@@ -3423,9 +3420,12 @@
 		(default 50)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot oncProcess
-		(type INSTANCE)
-;+		(allowed-classes ProcessDeclaration)
+	(single-slot IfClause
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot name_
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot eventType
@@ -3433,40 +3433,40 @@
 		(default 1)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot oncEvent
-;+		(comment "CAUTION:  Re-re-named this to start with lowercase.")
+	(single-slot oncProcess
 		(type INSTANCE)
-;+		(allowed-classes EventDeclaration)
+;+		(allowed-classes ProcessDeclaration)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot actions
 		(type INSTANCE)
 ;+		(allowed-classes OncAction)
 		(create-accessor read-write))
-	(single-slot name_
-		(type STRING)
+	(single-slot oncMethod
+		(type INSTANCE)
+;+		(allowed-classes MethodDeclaration SystemDefinedOncMethod)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass SubModelGroup
 	(is-a ModelEntity BrowserNodeWithKeywords)
 	(role concrete)
-	(multislot modelControllersUsingMe
-		(type INSTANCE)
-;+		(allowed-classes ModelController)
-		(create-accessor read-write))
 	(multislot submodelsInGroup
 		(type INSTANCE)
 ;+		(allowed-classes SubModel)
 		(create-accessor read-write))
-	(single-slot name_
-		(type STRING)
-;+		(cardinality 0 1)
+	(multislot modelControllersUsingMe
+		(type INSTANCE)
+;+		(allowed-classes ModelController)
 		(create-accessor read-write))
 	(single-slot modelType
 ;+		(comment "bio/setting/validation")
 		(type SYMBOL)
 		(allowed-values Bio Setting Validation)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot name_
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -3485,31 +3485,23 @@
 (defclass EnumLevelList
 	(is-a Persistible BrowserNodeWithKeywords)
 	(role concrete)
-	(single-slot keywords
-		(type INSTANCE)
-;+		(allowed-classes Keyword)
+	(single-slot ordered
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot increment
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot levels
-		(type INSTANCE)
-;+		(allowed-classes EnumLevel)
 		(create-accessor read-write))
 	(single-slot minimumValue
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot maximumValue
-		(type STRING)
+	(single-slot keywords
+		(type INSTANCE)
+;+		(allowed-classes Keyword)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot ordered
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
+	(multislot levels
+		(type INSTANCE)
+;+		(allowed-classes EnumLevel)
 		(create-accessor read-write))
 	(single-slot arithmatic
 		(type SYMBOL)
@@ -3523,6 +3515,14 @@
 	(single-slot numericList
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot maximumValue
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot increment
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -3542,6 +3542,11 @@
 (defclass InstantiateOncProcess
 	(is-a OncAction)
 	(role concrete)
+	(single-slot oncProcess
+		(type INSTANCE)
+;+		(allowed-classes ProcessDeclaration)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot enumInitializations
 		(type STRING)
 ;+		(cardinality 0 1)
@@ -3554,38 +3559,42 @@
 		(type STRING)
 ;+		(value "Instantiate")
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot oncProcess
-		(type INSTANCE)
-;+		(allowed-classes ProcessDeclaration)
-;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass ScheduleEventAction
 	(is-a OncAction)
 	(role concrete)
-	(single-slot oncMethod
-		(type INSTANCE)
-;+		(allowed-classes MethodDeclaration SystemDefinedOncMethod)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot recur
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-		(default FALSE)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
 	(single-slot scheduleEndType
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot scheduleStartType
-		(type STRING)
+	(single-slot oncEvent
+;+		(comment "CAUTION:  Re-re-named this to start with lowercase.")
+		(type INSTANCE)
+;+		(allowed-classes EventDeclaration)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot startDelayTime
 		(type INSTANCE)
 ;+		(allowed-classes OncTime)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numberOfTimesUntilEnd
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot endDelayTime
+		(type INSTANCE)
+;+		(allowed-classes OncTime)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot eventType
+		(type INTEGER)
+		(default 1)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot dayList
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot gapTime
@@ -3598,42 +3607,39 @@
 ;+		(allowed-classes ProcessDeclaration)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot oncMethod
+		(type INSTANCE)
+;+		(allowed-classes MethodDeclaration SystemDefinedOncMethod)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot recur
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+		(default FALSE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot scheduleStartType
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot isDayList
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot eventType
-		(type INTEGER)
-		(default 1)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot numberOfTimesUntilEnd
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot oncEvent
-;+		(comment "CAUTION:  Re-re-named this to start with lowercase.")
-		(type INSTANCE)
-;+		(allowed-classes EventDeclaration)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot dayList
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot endDelayTime
-		(type INSTANCE)
-;+		(allowed-classes OncTime)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass TriggerEventAction
 	(is-a OncAction)
 	(role concrete)
-	(single-slot oncMethod
+	(single-slot oncEvent
+;+		(comment "CAUTION:  Re-re-named this to start with lowercase.")
 		(type INSTANCE)
-;+		(allowed-classes MethodDeclaration SystemDefinedOncMethod)
+;+		(allowed-classes EventDeclaration)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot eventType
+		(type INTEGER)
+		(default 1)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot oncProcess
@@ -3641,15 +3647,9 @@
 ;+		(allowed-classes ProcessDeclaration)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot eventType
-		(type INTEGER)
-		(default 1)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot oncEvent
-;+		(comment "CAUTION:  Re-re-named this to start with lowercase.")
+	(single-slot oncMethod
 		(type INSTANCE)
-;+		(allowed-classes EventDeclaration)
+;+		(allowed-classes MethodDeclaration SystemDefinedOncMethod)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -3687,14 +3687,14 @@
 (defclass ModifyVariableAction "The variable type tells what kind of modification is allowed.\nThe Action subclass uses only that kind of variable."
 	(is-a OncActionWithVariable)
 	(role concrete)
-	(single-slot name_
-		(type STRING)
-;+		(value "Modify variable")
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot variableModification
 		(type INSTANCE)
 ;+		(allowed-classes VariableModification)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot name_
+		(type STRING)
+;+		(value "Modify variable")
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -3732,13 +3732,13 @@
 (defclass Parameter
 	(is-a ModelEntity Persistible BrowserNodeWithKeywords)
 	(role abstract)
-	(multislot valueMapEntriesContainingMe
-		(type INSTANCE)
-;+		(allowed-classes ValueMapEntry)
-		(create-accessor read-write))
 	(multislot variableDefinitions
 		(type INSTANCE)
 ;+		(allowed-classes VariableDefinition)
+		(create-accessor read-write))
+	(multislot valueMapEntriesContainingMe
+		(type INSTANCE)
+;+		(allowed-classes ValueMapEntry)
 		(create-accessor read-write)))
 
 (defclass TcapFloat
@@ -3768,31 +3768,7 @@
 (defclass SimonCT
 	(is-a Parameter)
 	(role concrete)
-	(single-slot pr0ParamName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot betaParamName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot pr1ParamName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot n1ParamName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot prResp1
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot nParamName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot r1ParamName
+	(single-slot alphaParamName
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -3800,8 +3776,44 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot rParamName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot n
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot beta
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nParamName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot n1ParamName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot prResp0
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot pr1ParamName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot r1ParamName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot betaParamName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot r1
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot n1
@@ -3812,23 +3824,11 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot rParamName
+	(single-slot prResp1
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot alphaParamName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot r1
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot n
-		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot beta
+	(single-slot pr0ParamName
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
@@ -3836,15 +3836,7 @@
 (defclass TreatmentSchedule
 	(is-a Parameter DeclareVariable)
 	(role concrete)
-	(single-slot nCourses
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot coursesName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot duration
+	(single-slot dayListName
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -3852,11 +3844,19 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot dayListName
+	(single-slot duration
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot dayList
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot coursesName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nCourses
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
@@ -3864,7 +3864,7 @@
 (defclass DeclarePositive
 	(is-a Parameter DeclareVariable)
 	(role concrete)
-	(single-slot displayName
+	(single-slot defaultInitialFloatValue
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -3872,7 +3872,7 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot defaultInitialFloatValue
+	(single-slot displayName
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
@@ -3880,16 +3880,16 @@
 (defclass DeclareSwitchablePositive
 	(is-a DeclarePositive DeclareSwitchable)
 	(role concrete)
+	(single-slot positiveDisplayName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot state
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot switchDisplayName
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot positiveDisplayName
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
@@ -3913,6 +3913,12 @@
 (defclass DeclareEnumPicker
 	(is-a Parameter BrowserNodeWithKeywords)
 	(role concrete)
+	(single-slot allowMultiples
+;+		(comment "does the parameter allow more than one boolean expression in its tree")
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot keywords
 		(type INSTANCE)
 ;+		(allowed-classes Keyword)
@@ -3921,12 +3927,6 @@
 	(single-slot pickerType
 ;+		(comment "boolean expression\nassignment\nor instantiation	")
 		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot allowMultiples
-;+		(comment "does the parameter allow more than one boolean expression in its tree")
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot name_
@@ -3941,11 +3941,6 @@
 (defclass SubsetParameter
 	(is-a DeclareEnumPicker)
 	(role concrete)
-	(single-slot attributeFilter
-		(type INSTANCE)
-;+		(allowed-classes EnumSubsetFilter)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot basePicker
 		(type INSTANCE)
 ;+		(allowed-classes DeclareEnumPicker)
@@ -3954,6 +3949,11 @@
 	(single-slot subsetFilter
 		(type INSTANCE)
 ;+		(allowed-classes SubsetFilter)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot attributeFilter
+		(type INSTANCE)
+;+		(allowed-classes EnumSubsetFilter)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -3977,14 +3977,14 @@
 (defclass ModifyCategory
 	(is-a DeclareCategory)
 	(role concrete)
-	(single-slot baseCategory
-		(type INSTANCE)
-;+		(allowed-classes DeclareCategory)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot category
 		(type INSTANCE)
 ;+		(allowed-classes Keyword)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot baseCategory
+		(type INSTANCE)
+;+		(allowed-classes DeclareCategory)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -4008,23 +4008,23 @@
 (defclass ConditionalTableParameter
 	(is-a FunctionParameter)
 	(role concrete)
-	(multislot possibleOutcomes
+	(single-slot conditionValue
 		(type INSTANCE)
-;+		(allowed-classes ConditionalOutcome)
+;+		(allowed-classes Persistible)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot function
 ;+		(comment "			")
 		(type INSTANCE)
 ;+		(allowed-classes ConditionalDiscreteStateFunction)
 		(create-accessor read-write))
+	(multislot possibleOutcomes
+		(type INSTANCE)
+;+		(allowed-classes ConditionalOutcome)
+		(create-accessor read-write))
 	(single-slot stateMatrix
 		(type INSTANCE)
 ;+		(allowed-classes StateMatrix)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot conditionValue
-		(type INSTANCE)
-;+		(allowed-classes Persistible)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -4047,11 +4047,11 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot startLevelDisplayName
+	(single-slot characteristicDisplayName
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot characteristicDisplayName
+	(single-slot startLevelDisplayName
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
@@ -4059,6 +4059,11 @@
 (defclass TwoLevelParameter
 	(is-a DeclareTwoLevelParameter)
 	(role concrete)
+	(single-slot endLevel
+		(type INSTANCE)
+;+		(allowed-classes EnumLevel)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot baseParameter
 		(type INSTANCE)
 ;+		(allowed-classes DeclareTwoLevelParameter)
@@ -4068,20 +4073,11 @@
 		(type INSTANCE)
 ;+		(allowed-classes EnumLevel)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot endLevel
-		(type INSTANCE)
-;+		(allowed-classes EnumLevel)
-;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass ProcessDeclaration
 	(is-a ModelEntity Persistible BrowserNodeWithKeywords)
 	(role concrete)
-	(single-slot javaSuperClass
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(multislot variableDefinitionsAndCodeBundlesContainingMe
 		(type INSTANCE)
 ;+		(allowed-classes VariableDefinition CodeBundle)
@@ -4089,6 +4085,10 @@
 	(multislot methods
 		(type INSTANCE)
 ;+		(allowed-classes MethodDeclaration SystemDefinedOncMethod)
+		(create-accessor read-write))
+	(single-slot javaSuperClass
+		(type STRING)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot name_
 		(type STRING)
@@ -4102,6 +4102,10 @@
 		(type INSTANCE)
 ;+		(allowed-classes Keyword)
 		(create-accessor read-write))
+	(single-slot keyword
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
 	(multislot describedInstances
 		(type INSTANCE)
 ;+		(allowed-classes ModelBuilderMetaData CancerEntity Persistible BrowserNode InformationEntity ModelEntity)
@@ -4109,10 +4113,6 @@
 	(multislot childKeywords
 		(type INSTANCE)
 ;+		(allowed-classes Keyword)
-		(create-accessor read-write))
-	(single-slot keyword
-		(type STRING)
-;+		(cardinality 1 1)
 		(create-accessor read-write)))
 
 (defclass ProblemContext
@@ -4131,11 +4131,11 @@
 (defclass BrowserClassMap
 	(is-a USER)
 	(role concrete)
-	(single-slot name_
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(multislot browserMapItems
 		(type INSTANCE)
 ;+		(allowed-classes BrowserNodeClass)
+		(create-accessor read-write))
+	(single-slot name_
+		(type STRING)
+;+		(cardinality 0 1)
 		(create-accessor read-write)))
