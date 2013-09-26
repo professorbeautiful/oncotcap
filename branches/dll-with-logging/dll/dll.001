@@ -1,0 +1,592 @@
+# Microsoft Developer Studio Project File - Name="dll" - Package Owner=<4>
+# Microsoft Developer Studio Generated Build File, Format Version 5.00
+# ** DO NOT EDIT **
+
+# TARGTYPE "Win32 (x86) Dynamic-Link Library" 0x0102
+
+CFG=dll - Win32 Release
+!MESSAGE This is not a valid makefile. To build this project using NMAKE,
+!MESSAGE use the Export Makefile command and run
+!MESSAGE 
+!MESSAGE NMAKE /f "dll.mak".
+!MESSAGE 
+!MESSAGE You can specify a configuration when running NMAKE
+!MESSAGE by defining the macro CFG on the command line. For example:
+!MESSAGE 
+!MESSAGE NMAKE /f "dll.mak" CFG="dll - Win32 Release"
+!MESSAGE 
+!MESSAGE Possible choices for configuration are:
+!MESSAGE 
+!MESSAGE "dll - Win32 Release" (based on "Win32 (x86) Dynamic-Link Library")
+!MESSAGE "dll - Win32 Debug" (based on "Win32 (x86) Dynamic-Link Library")
+!MESSAGE 
+
+# Begin Project
+# PROP Scc_ProjName ""$/TCAP-Release-9/DLL", KKKAAAAA"
+# PROP Scc_LocalPath "."
+CPP=cl.exe
+MTL=midl.exe
+RSC=rc.exe
+
+!IF  "$(CFG)" == "dll - Win32 Release"
+
+# PROP BASE Use_MFC 0
+# PROP BASE Use_Debug_Libraries 0
+# PROP BASE Output_Dir ".\Release"
+# PROP BASE Intermediate_Dir ".\Release"
+# PROP BASE Target_Dir ""
+# PROP Use_MFC 0
+# PROP Use_Debug_Libraries 0
+# PROP Output_Dir ".\Release"
+# PROP Intermediate_Dir ".\Release"
+# PROP Target_Dir ""
+# ADD BASE CPP /nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /YX /c
+# ADD CPP /nologo /MT /W3 /GX /O2 /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /FAs /Fr /YX /FD /c
+# ADD BASE MTL /nologo /D "NDEBUG" /win32
+# ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
+# ADD BASE RSC /l 0x409 /d "NDEBUG"
+# ADD RSC /l 0x409 /d "NDEBUG"
+BSC32=bscmake.exe
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+LINK32=link.exe
+# ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib /nologo /subsystem:windows /dll /machine:I386
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib /nologo /subsystem:windows /dll /profile /debug /machine:I386 /out:".\treat.dll"
+
+!ELSEIF  "$(CFG)" == "dll - Win32 Debug"
+
+# PROP BASE Use_MFC 0
+# PROP BASE Use_Debug_Libraries 1
+# PROP BASE Output_Dir ".\Debug"
+# PROP BASE Intermediate_Dir ".\Debug"
+# PROP BASE Target_Dir ""
+# PROP Use_MFC 0
+# PROP Use_Debug_Libraries 1
+# PROP Output_Dir ".\Debug"
+# PROP Intermediate_Dir ".\Debug"
+# PROP Target_Dir ""
+# ADD BASE CPP /nologo /MTd /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /YX /c
+# ADD CPP /nologo /MTd /W3 /GX /Zi /Od /D "_DEBUG" /D "WIN32" /D "_WINDOWS" /FAs /Fr /YX /FD /c
+# ADD BASE MTL /nologo /D "_DEBUG" /win32
+# ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
+# ADD BASE RSC /l 0x409 /d "_DEBUG"
+# ADD RSC /l 0x409 /d "_DEBUG"
+BSC32=bscmake.exe
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+LINK32=link.exe
+# ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib /nologo /subsystem:windows /dll /debug /machine:I386
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib /nologo /subsystem:windows /dll /profile /debug /machine:I386 /out:".\treat.dll"
+
+!ENDIF 
+
+# Begin Target
+
+# Name "dll - Win32 Release"
+# Name "dll - Win32 Debug"
+# Begin Group "Source Files"
+
+# PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;hpj;bat;for;f90"
+# Begin Source File
+
+SOURCE=.\Add.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\addnewbbe.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\AddQIndex.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\AddToCellQ.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\AddToEventQ.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\AddtoRegimen.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\And.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\ApplyRegimen.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\Applyrul.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\ApplyTrialSched.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\ariths.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\buildkill.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\buildsche.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\CalculateTimeKillSurv.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\cellcount.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\cellp.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\CheckBBRules.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\checkevents.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\CheckForTox.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\CheckForTreatment.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\CheckIfICRuleApplies.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\CheckIfICRuleAppliesPGF.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\CheckOrExecClause.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\CheckRule.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\clearbbe.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\ClearBBRegimen.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\clearblackboard.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\ClearRules.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\ClearTempBB.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\Comp.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\CreateParaStruct.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\dround.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\Eq.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\evalshed.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\GenerateInitCellCount.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\getenvir.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\GetFunctionPtr.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\getstring.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\grand.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\Gt.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\Gte.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\incondition.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\IncrementActionClause.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\IncrementIFClause.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\IncrementRule.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\infile.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\InitDoseFactor.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\InitNextToxTime.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\InitTox.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\InterpretEvents.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\jointpgf.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\jpgfcond.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\jpgfen.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\jpgfit.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\jpgfstep.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\lognorm.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\lookup.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\Lt.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\Lte.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\makeoutfile.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\messages.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\MultiSim.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\ncells.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\Ne.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\nlogs.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\norm.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\now.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\outfile.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\ParseSchedule.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\pgf1.pure.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\pgfint.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\pgfmain.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\pgfxcm.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\phaseii.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\printrulestofile.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\probeprob.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\probzeros.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\RandLogNorm.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\Readrul.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\realprompt.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\registry.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\RemoveTreatments.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\ResetBBEveryDeltaT.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\ResetCellP.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\ResetCellQ.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\ResetEventQ.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\resetevents.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\ResetMultiCellP.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\SendArgs.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\SendFunction.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\SetB.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\SetBBForPatient.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\SetBBFromEvents.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\SetD.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\SetI.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\setInitialCellCounts.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\setmem.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\setrates.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\SetSpeed.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\SingleCellp.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\sortsched.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\strings.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\ThdCellp.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\ThdMultiCellP.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\timecours.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\Treat.def
+# End Source File
+# Begin Source File
+
+SOURCE=.\TreatmentExists.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\TreatmentExistsInt.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\typeconds.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\typemask.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\typestrin.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\typevec.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\vbc.c
+# End Source File
+# End Group
+# Begin Group "Header Files"
+
+# PROP Default_Filter "h;hpp;hxx;hm;inl;fi;fd"
+# Begin Source File
+
+SOURCE=.\build.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\cellp.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\classes.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Const.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\defines.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\grand.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\msim.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Pheno.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\procdecs.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\tox.h
+# End Source File
+# End Group
+# Begin Group "Resource Files"
+
+# PROP Default_Filter "ico;cur;bmp;dlg;rc2;rct;bin;cnt;rtf;gif;jpg;jpeg;jpe"
+# End Group
+# End Target
+# End Project
