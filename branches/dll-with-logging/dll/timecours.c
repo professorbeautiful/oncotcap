@@ -1,7 +1,10 @@
 #include "build.h"
 #include <windows.h>
+#include <stdio.h>
 #include "defines.h"
 #include "timecourse.h"
+#include "logger.h"
+
 		/**@ timecourse.p **/
 void /*PROCEDURE*/ timecourse()   /*COMPILED*/
 
@@ -16,12 +19,15 @@ void /*PROCEDURE*/ timecourse()   /*COMPILED*/
 	 static real  mintime=0; 
 	 real problevel, probwegot, zeroprob, lognumber, cellnumber;
 
+
+
 	ptrTC = strTimecourse;
 #define STRPRINT0(A) nc = sprintf(ptrTC,A); ptrTC = ptrTC + nc;
 #define STRPRINT1(A,B) nc = sprintf(ptrTC,A,B); ptrTC = ptrTC + nc;
 #define STRPRINTEOL nc = sprintf(ptrTC,"%c%c",(char) 13, (char) 10); ptrTC = ptrTC + nc;
 	problevel = ENEG1;
 
+	fprintf(logfile,"%s\tfunction:timecourse\n", gettime());
 
 /** next 6 lines new as of dec 4 1985;  cutsout early eval times **/
 	fprintf (eout," Minimum evaluation time: ");
@@ -113,6 +119,7 @@ extern BSTR EXPORT PASCAL Do_Timecourse(ioption)
 int ioption;
 {
 	int i, nowenvl;			   
+	fprintf(logfile,"%s\tfunction:timecourse.Do_Timecourse\tioption:%d\n", gettime(),ioption);
 
 	setInitialCellCounts(ioption,NEWPATIENT,PGF,0);
 	theta=LogMean;

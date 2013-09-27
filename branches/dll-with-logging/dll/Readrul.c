@@ -1,5 +1,5 @@
 #include "build.h"
-
+#include<stdio.h>
 #include "Pheno.h"
 #define DEBUG1
 
@@ -12,6 +12,7 @@
 #include <ctype.h>
 #include "defines.h"
 #include "InducedConv.h"
+#include "logger.h"
 
 char *parseKeys[]=
 { "","KM", "KC", "DT", "TU", "CT", "GP", "GS", "K", "C", "L", 
@@ -1800,6 +1801,7 @@ int toenv;
 #ifndef TESTMPI
 extern int EXPORT PASCAL ResetEnvir()
 {
+	fprintf(logfile,"%s\tfunction:Readrul.ResetEnvir", gettime());
 	nenvlist = 1;
     envlist[1].t = 0.0;
     envlist[1].e = 0;
@@ -1839,6 +1841,7 @@ extern int EXPORT PASCAL  SetEnvir( char *name, double begin, double ender)
 #endif
 {
   int i, rets, found, fidx;
+  fprintf(logfile,"%s\tfunction:Readrul.SetEnvir\tname:%s\tbegin:%12f\tender:%12f\n", gettime(),name, begin, ender);	
   nenvlist = nenvlist + 1;
   envlist[nenvlist].t = begin;
   found = 0;

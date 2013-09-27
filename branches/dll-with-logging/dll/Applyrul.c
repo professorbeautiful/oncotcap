@@ -4,6 +4,8 @@
 
 #include "defines.h"
 #include <malloc.h>
+#include <stdio.h>
+#include "logger.h"
 
 double mincycletime;
 
@@ -27,6 +29,7 @@ extern  double EXPORT PASCAL ApplyRules(char *phenofile)
   /* nenvlist = 1; */
 
   nowenv = 0;
+  fprintf(logfile,"%s\tfunction:Applyrul.ApplyRules\tphenofile:%s\n", gettime(),phenofile);
   if ( IsUnix == false ) {
 	  t = read_rule_file( phenofile );
  

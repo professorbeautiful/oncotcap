@@ -4,6 +4,7 @@
 #include "defines.h"
 #include "rule.h"
 #include "BBoard.h"
+#include "logger.h"
 
 FILE *fp;
 void printclause(ClauseType *clause);
@@ -15,6 +16,7 @@ int EXPORT PASCAL printrulestofile()
 	int i, n;
 	char tchar[255], fname[255];
 
+	fprintf(logfile,"%s\tfunction:printrulestofile.printrulestofile\n", gettime());
 	strcpy (fname, WorkingDir);
 	strcat (fname, "\\rules.out");
 

@@ -1,10 +1,11 @@
 #include "build.h"
-
+#include <stdio.h>
 #ifndef UNIX
 #include <windows.h>
 #include <crtdbg.h> 
 #endif
 #include "defines.h"
+#include "logger.h"
 
 int IsSetPara;
 void setInitialCellCounts();
@@ -16,10 +17,10 @@ extern real EXPORT PASCAL Do_jointpgf(ioption)
 int ioption;
 #endif
 {
-	int i, nowenvl;			   
+	int i, nowenvl;
 	real rets;
 
-
+	fprintf(logfile,"%s\tfunction:jointpgf.Do_jointpgf\tioption:%d\n", gettime(),ioption);
 	setInitialCellCounts(ioption,NEWPATIENT,PGF,0);
 	theta=LogMean;
 	tau=LogStd;
@@ -84,7 +85,7 @@ extern double jpgfen_rand();
 extern int EXPORT PASCAL InitPgf()
 {
 	extern int fill_para();
-
+	fprintf(logfile,"%s\tfunction:jointpgf.InitPgf\n", gettime());
 	if ( ntypes > MAXTYPES ) {
 		MessageBox(NULL,"Sorry. The total number of cell types has exceeded the limits, Please reduce the number of levels or number of classes. Try again.","treat.dll",MB_ICONEXCLAMATION | MB_OK);
 	    return (False );
@@ -97,6 +98,7 @@ extern int EXPORT PASCAL InitPgf()
 extern void  EXPORT PASCAL FinishPgf()
 {
 	extern void release_mem();
+	fprintf(logfile,"%s\tfunction:jointpgf.FinishPgf\n", gettime());
 	release_mem(PGF);
 	free(initCellVector);
 }

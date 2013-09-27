@@ -1,11 +1,14 @@
 #include <windows.h>
+#include <stdio.h>
 #include "build.h"
 #include "defines.h"
 #include "classes.h"
 #include "cellp.h"
+#include "logger.h"
 
 extern int EXPORT PASCAL ResetCellQ( int numpop )
 {
+	fprintf(logfile,"%s\tfunction:ResetCellQ.ResetCellQ\n", gettime());
 //	int i,j;
     
 //	if ((numpop > 0) && (numpop <= QLength(iCellQHead, iCellQTail)))

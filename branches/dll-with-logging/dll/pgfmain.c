@@ -11,6 +11,7 @@
 #include "cellp.h"
 #include "msim.h"
 #include "InducedConv.h"
+#include "logger.h"
 
 int WINAPI DllMain( HINSTANCE hInstance, DWORD fdwReason, PVOID pvReserved )
 {
@@ -56,7 +57,13 @@ int WINAPI DllMain( HINSTANCE hInstance, DWORD fdwReason, PVOID pvReserved )
 			MessageBox(NULL,"ERROR: pgf.dat failed open","treat.dll",MB_ICONEXCLAMATION | MB_OK);
 			return (FALSE);
 		}
-       
+
+		strcpy(logfilename,"c:\\tcaplog\\trace.log");
+		if((logfile = fopen(logfilename, "a")) == NULL)
+		{
+			MessageBox(NULL,"ERROR: unable to open log file", "tread.dll", MB_ICONEXCLAMATION | MB_OK);
+		}
+		
 		strcpy (infilname, ArchiveDir);
 		strcat (infilname, "\\default.par");
 
@@ -102,6 +109,8 @@ int WINAPI DllMain( HINSTANCE hInstance, DWORD fdwReason, PVOID pvReserved )
 extern int EXPORT PASCAL DoPgf( )
 {
 int nowenvl,iindex;
+
+ fprintf(logfile,"%s\tfunction:pgfmain.DoPgf\n", gettime());
 
 /* all references to celpltfile comment out 11/15/96 -wes
   celpltfile = fopen("c:\\temp\\CELPLT.DAT", "w");*/

@@ -13,6 +13,7 @@
 #include <io.h>
 #endif
 #include "defines.h"
+#include "logger.h"
 
 void evaluate_schedule();
 
@@ -23,7 +24,8 @@ char *schedparam;
 #else 
 extern int EXPORT PASCAL  ApplySchedule( char *schedparam, int id )
 #endif
- {
+{
+   fprintf(logfile,"%s\tfunction:evalsched.ApplySchedule\tschedparam:%s\tid:%d\n", gettime(),schedparam,id);	
    evaluate_schedule(schedparam, id);
    buildsched();
    if ( nsched < MAXTIMES ){

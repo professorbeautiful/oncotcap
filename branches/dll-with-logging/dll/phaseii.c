@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "phaseii.h"
+#include "logger.h"
 
 /* 
 function phaseii_simon() to create results of phaseII design  
@@ -28,6 +29,7 @@ extern int EXPORT PASCAL phaseii_simon(double alpha, double beta,double p1,doubl
     double Fun_val,Val;
 	char disp_str[80];
 
+	fprintf(logfile,"%s\tfunction:phaseii.phaseii_simon\talpha:%12f\tbeta:%12f\tp1:%12f\tp2:%12f\tnmax:%d\n", gettime(),alpha, beta, p1, p2, nmax);
 	if ( nmax <= 0.0 ) nmax=MAX_SAMPLE_SIZE/2; /* default is 105 */
 	else if ( nmax >= MAX_SAMPLE_SIZE ) nmax = MAX_SAMPLE_SIZE-1;
 	

@@ -1,11 +1,13 @@
 #include "build.h"
 #include <windows.h>
 #include <malloc.h>
+#include <stdio.h>
 #include "defines.h"
 #include "classes.h"
 #include "cellp.h"
 #include "msim.h"
 #include "tox.h"
+#include "logger.h"
 
 extern int EXPORT PASCAL ThreadedMultiCellP(
 									   double delT,
@@ -30,6 +32,7 @@ extern int EXPORT PASCAL ThreadedMultiCellP(
 	int i;
 	extern int OrganMet(int,unsigned int,double,int),OrganMetGroup(int,unsigned int,double,int);
 
+	fprintf(logfile,"%s\tfunction:ThdMultiCellP.OrganMet\tLots and lots and lots of args...\n", gettime());
 
 	MEndSim = False;
 	EndSim = False;

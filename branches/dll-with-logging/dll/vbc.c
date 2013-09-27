@@ -21,6 +21,7 @@
 #include "regimen.h"
 #include "bboard.h"
 #include "PlotHandler.h"
+#include "logger.h"
 #ifndef TESTMPI
 #include <crtdbg.h>
 #define VBSTRING(A) SysAllocStringByteLen(A,strlen(A))
@@ -31,6 +32,7 @@ extern double EXPORT PASCAL  peekd(variablename,x,y,z)
 char *variablename;
 int x,y,z;
 {
+	fprintf(logfile,"%s\tfunction:vbc.peekd\tvariablename:%s\tx:%d\ty:%d\tz:%d\n", gettime(),variablename,x,y,z);
 		    if(strcmp(variablename,"cycletime")==0) return cycletime(x,y);
 			if(strcmp(variablename,"simtime")==0) 
 				return t;
@@ -80,6 +82,8 @@ double value,a,b,c;
 	x=(int) a;
 	y=(int) b;
 	z=(int) c;
+	fprintf(logfile,"%s\tfunction:vbc.poked\tvariablename:%s\tvalue:%12f\ta:%12f\tb:%12f\tc:%g\n", gettime(),variablename,value,x,y,z);
+
    if (strcmp(variablename,"doubletime")==0)
    {
       doubletime(x,y)=value;
@@ -243,6 +247,7 @@ int drugindex;
 double time,fraction;
 double treatidx;
 {
+	fprintf(logfile,"%s\tfunction:vbc.pokedosefactor\tdrugindex:%d\ttime:%12f\tfraction:%12f\ttreatidx:%12f\n",gettime(),drugindex,time,fraction,treatidx);
 	return(cside_pdf(drugindex,time,fraction,(int)treatidx));
 }
 #endif
@@ -324,6 +329,7 @@ extern double  EXPORT PASCAL peekdfatanytime(double drugind)
 {
 	int isched; 
 	int drugindex;
+	fprintf(logfile,"%s\tfunction:vbc.peekdfatanytime\tdrugind:%12f\n", gettime(),drugind);
 	drugindex = (int) drugind;
 	for (isched = 1;isched <= TrialInfo.Regimen.numTreatments;isched++)
 	{
@@ -340,6 +346,7 @@ int drugindex;
 double time;
 {
 	int isched;
+    fprintf(logfile,"%s\tfunction:vbc.peekdosefactor\tdrugindex:%12f\ttime:%d\n", gettime(),drugindex,time);
 	for (isched = 1;isched <= nsched;isched++)
 	{
 		if ((sched[isched].d == drugindex) && (sched[isched].t == time)) return(sched[isched].df);
@@ -352,7 +359,7 @@ extern int EXPORT PASCAL  peeki(variablename,x,y,z)
 char *variablename;
 int x,y,z;
 {
-
+	fprintf(logfile,"%s\tfunction:vbc.peeki\tvariablename:%s\tx:%d\ty:%d\tz:%d\n", gettime(),variablename,x,y,z);
 	    if(strcmp(variablename,"ntypes")==0) return (ntypes);
 	    if(strcmp(variablename,"Number_of_Classes")==0) return (Number_of_Classes);
 	    if(strcmp(variablename,"no_levels")==0) return (Class[x].no_levels);
@@ -386,6 +393,7 @@ double a,b,c;
 {
 	int value;
 	int x,y,z;
+	fprintf(logfile,"%s\tfunction:vbc.pokei\tvariablename:%s\tval:%12f\ta:%12f\tb:%12f\tc:%12f\n",gettime(),variablename,val,a,b,c);
 	x=(int) a;
 	y=(int) b;
 	z=(int)c;
@@ -698,7 +706,7 @@ double a,b,c;
 
 extern BSTR EXPORT PASCAL peekc(char *variablename,int x, int y, int z)
 {
-    
+	fprintf(logfile,"%s\tfunction:vbc.peekc\tvariablename:%s\tx:%d\ty:%d\tz:%d\n", gettime(),variablename,x,y,z);
 	    if(strcmp(variablename,"class_name")==0) return VBSTRING(Class[x].class_name);
 	    if(strcmp(variablename,"level_name")==0) return VBSTRING(Class[x].Level[y].level_name);
 		if(strcmp(variablename,"plotlinename")==0) return VBSTRING(PlotLineName[x]);
@@ -723,7 +731,7 @@ double a,b,c;
 {
 	int x,y,z;
 	int j;
-	
+	fprintf(logfile,"%s\tfunction:vbc.pokec\tvariablename:%s\tvalue:%s\ta:%12f\tb:%12fc:%12f\n",gettime(),variablename,value,a,b,c);
 	x=(int) a;
 	y=(int) b;
 	z=(int) c;
@@ -833,6 +841,18 @@ int x;
 	}
    else if (strcmp(variablename,"cellname")==0)
       printf("typename=%s\n",cellname(x));
+}
+
+char *gettime()
+{
+	char *rval;
+	char *pos;
+	time ( &rawtime );
+	timeinfo = localtime ( &rawtime );
+	rval = asctime(timeinfo);
+	if ((pos=strchr(rval, '\n')) != NULL)
+		*pos = '\0';
+	return(rval);	
 }
 
 /* void main(argc,argv)

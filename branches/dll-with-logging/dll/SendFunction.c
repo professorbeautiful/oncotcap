@@ -1,5 +1,7 @@
+#include <stdio.h>
 #include "Rule.h"
 #include "BBoard.h"
+#include "logger.h"
 
 /***************************************************************************
 * Name     :SendFunction.c
@@ -17,7 +19,7 @@ int EXPORT PASCAL SendFunction(int ruleIndex,
 							   int funcConst)
 {
 	PFI fptr;
-
+	fprintf(logfile,"%s\tfunction:SendFunction.SendFunction\truleIndex%d\tclauseIndex:%d\tclauseType:%d\tfuncConst:%d\n", gettime(),ruleIndex,clauseIndex,clauseType,funcConst);
 	fptr = GetFunctionPtr(funcConst);
 
 	switch(clauseType)

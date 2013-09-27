@@ -11,10 +11,13 @@
 *           line from the subset celltypes and calls the VB PlotData
 *****************************************************************************/
 #include <stdlib.h>
+#include <stdio.h>
 #include "build.h"
 #include "defines.h"
 #include "classes.h"
 #include "cellp.h"
+#include "logger.h"
+
 int EXPORT PASCAL  getCellLevelbyClassforPlotting();
 void get_macro_levelname(int cn,int lnum,char *name);
 
@@ -30,6 +33,7 @@ int EXPORT PASCAL setupPlotHandler()
 
 	retVal = 0;
 	//Init CNsave
+	fprintf(logfile,"%s\tfunction:PlotHandler.setupPlotHandler\n", gettime());
 	if (CNsave.cellcount != NULL)
 	{
 		free(CNsave.cellcount);
@@ -301,6 +305,7 @@ int EXPORT PASCAL  getCellLevelbyClassforPlotting( int icell, int iclass)
 	int preProd,postProd;
 	int sLevel,retVal;
 
+	fprintf(logfile,"%s\tfunction:PlotHandler.getCellLevelbyClassforPlotting\ticell:%d\ticlass:%d\n", gettime(),icell,iclass);
 	preProd = 1;
 	icell--;
 	for(i=iclass;i<numPlotProperty;i++)

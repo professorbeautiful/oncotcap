@@ -7,7 +7,7 @@
 #include "cellp.h"
 #include "msim.h"
 #include "tox.h"
-
+#include "logger.h"
 
 extern int EXPORT PASCAL ThreadedCellP(int PatientMode,
 									   double delT,
@@ -30,7 +30,7 @@ extern int EXPORT PASCAL ThreadedCellP(int PatientMode,
 									   PFI PlottingFnc,
 									   PFI EventFnc)
 {
-
+	
 //	DWORD dwWaitResult;
 //	int answer;
 	extern int OrganMet(int,unsigned int,double,int),OrganMetGroup(int,unsigned int,double,int);
@@ -41,7 +41,7 @@ extern int EXPORT PASCAL ThreadedCellP(int PatientMode,
 	char seedfilename[255];
 	int i;
 
-
+	fprintf(logfile,"%s\tfunction:ThdCellp.OrganMet\tLots and lots of arguments..\n", gettime());
 	// if MSim is running, ask and kill it
 	//do some initialization stuff
 	delta_t = delT;

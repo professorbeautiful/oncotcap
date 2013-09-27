@@ -1,13 +1,16 @@
 #include <windows.h>
+#include <stdio.h>
 #include "build.h"
 #include "defines.h"
 #include "classes.h"
 #include "cellp.h"
+#include "logger.h"
 
 extern int EXPORT PASCAL LockQ( int QType )
 {
 	DWORD dwWaitResult;
 
+	fprintf(logfile,"%s\tfunction:QLocks.LockQ\tQType:%d\n", gettime(),QType);
     switch (QType)
 	{
 		case CELLQ:
@@ -26,6 +29,7 @@ extern int EXPORT PASCAL LockQ( int QType )
 
 extern int EXPORT PASCAL UnlockQ( int QType )
 {
+    fprintf(logfile,"%s\tfunction:QLocks.UnlockQ\tQType:%d\n", gettime(),QType);	
     switch (QType)
 	{
 		case CELLQ:

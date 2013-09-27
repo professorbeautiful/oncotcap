@@ -1,10 +1,12 @@
+#include <stdio.h>
 #include "rule.h"
 #include "BBoard.h"
+#include "logger.h"
 
 int EXPORT PASCAL ClearRules()
 {
 	int n;
-
+	fprintf(logfile,"%s\tfunction:ClearRules.ClearRules\n", gettime());
 	for (n=0;n<=nRules;n++)
 	{
 		BBRules[n].nIFClauses = 0;

@@ -1,7 +1,9 @@
 #include <string.h>
 #include <malloc.h>
+#include <stdio.h>
 #include "Rule.h"
 #include "BBoard.h"
+#include "logger.h"
 
 /***************************************************************************
 * Name     :SendArgs.c
@@ -21,6 +23,7 @@ int EXPORT PASCAL SendArgsI(int ruleIndex,
 {
 	int *tptr;
 
+	fprintf(logfile,"%s\tfunction:SendArgs.SendArgsI\truleIndex:%d\tclauseIndex:%d\targIndex:%d\tclauseType:%d\tvalue:%d\n", gettime(),ruleIndex,clauseIndex,argIndex,clauseType,value);
 	tptr =  malloc(sizeof(int));
 	*tptr = value;
 
@@ -45,7 +48,7 @@ int EXPORT PASCAL SendArgsB(int ruleIndex,
 						   )
 {
 	int *tptr;
-
+	fprintf(logfile,"%s\tfunction:SendArgs.SendArgsB\truleIndex:%d\tclauseIndex:%d\targIndex:%d\tclauseType:%d\tvalue:%d\n", gettime(),ruleIndex,clauseIndex,argIndex,clauseType,value);
 	tptr =  malloc(sizeof(int));
 	*tptr = value;
 
@@ -74,6 +77,7 @@ int EXPORT PASCAL SendArgsD(int ruleIndex,
 	tptr  =  malloc(sizeof(double));
 	*tptr = value;
 
+	fprintf(logfile,"%s\tfunction:SendArgs.SendArgsD\truleIndex:%d\tclauseIndex:%d\targIndex:%d\tclauseType:%d\tvalue:%12f\n", gettime(),ruleIndex,clauseIndex,argIndex,clauseType,value);	
 	switch(clauseType)
 	{
 	case BBIFCOND:
@@ -96,7 +100,7 @@ int EXPORT PASCAL SendArgsC(int ruleIndex,
 						   )
 {
 	char *tptr;
-
+	fprintf(logfile,"%s\tfunction:SendArgs.SendArgsC\truleIndex:%d\tclauseIndex:%d\targIndex:%d\tclauseType:%d\tvalue:%s\n", gettime(),ruleIndex,clauseIndex,argIndex,clauseType,value);
 	tptr  =  malloc((strlen(value) + 1) * sizeof(char));
 	strcpy(tptr,value);
 

@@ -12,12 +12,12 @@
 void printvalue();
 #include <stdlib.h>
 #endif
-    
+#include <stdio.h>    
 #include "defines.h"
 #include "classes.h"
 #include "cellp.h"
 #include "bboard.h"
-
+#include "logger.h"
 #include "tox.h"
 #ifdef TEST
 time_t saitime;
@@ -32,6 +32,7 @@ int nentry;
 #ifndef TESTMPI
 extern 	double EXPORT PASCAL s2wrapper ( char *what, double val, int index)
 {
+	fprintf(logfile,"%s\tfunction:cellp.s2wrapper\twhat:%s\tval:%12f\tindex:%d\n", gettime(),what,val,index);
   	if (strcmp(what,"PeekCN") == 0)  
 	{
  		return(getcellcounts(index,!VEGF));
@@ -972,6 +973,7 @@ extern double EXPORT PASCAL  sumcellbylevel ( cn, si )
 	double sum;
 	sum = 0;
 
+	fprintf(logfile,"%s\tfunction:cellp.sumcellbylevel\tcn:%d\tsi:%d\\n", gettime(),cn,si);
 	cellindices=(int *)malloc((ntypes/Class[cn].no_levels+1)*sizeof(int));
 	if ( cellindices == NULL ) {
 		Memory = False;
