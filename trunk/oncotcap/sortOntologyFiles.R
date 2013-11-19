@@ -8,22 +8,21 @@
 
 #folder = "~/Dropbox/OncoTCap/oncotcap/TcapData-demos"
 #folder = "~/Dropbox/OncoTCap/oncotcap/TcapData-Roger"
-folder = "."
+folder = "TcapData"
 filename = "oncotcap.pins"
 if(!interactive()) {
   args = commandArgs(trailingOnly=T)  ### AFTER "--args"
   cat("args are ", args, "\n")
   if(length(args) == 0) {
-    cat("No arguments; folder and filename set to defaults.\n")
+    cat("No arguments; folder and filename set to defaults",
+filename, ", ", folder, ".\n")
   }
   else {
     FileChoice = args[1]
     filename = switch(FileChoice,
-                    oncotcap.pins="oncotcap.pins",
-                    oncotcap.pont="oncotcap.pont",
                     pins="oncotcap.pins",
                     pont="oncotcap.pont",
-                    "no file named")
+                      FileChoice)
     if(filename=="no file named") {
       stop("Error: file name ", FileChoice, " is unrecognized. Exiting\n")
     }
@@ -95,7 +94,7 @@ separateWithinTabGroup = function(lines, tablevel, pr=FALSE, doSort=FALSE){
 }
 
 
-if(1==length(grep("pont$", filename))){ #  "pont" file. 
+if(1==length(grep("pont", filename))){ #  "pont" file. 
   ### We have to sort ONLY in groups of single-slot and multislot,
   ## not at the top level (which is NOT written in stochastic order,
   ## but in a meaningful order),
@@ -131,7 +130,7 @@ if(1==length(grep("pont$", filename))){ #  "pont" file.
   ## No sorting is done at level 3.
 }
 
-if(1==length(grep("pins$", filename))){  #### "pins" file: 
+if(1==length(grep("pins", filename))){  #### "pins" file: 
   
   protegeHeader = protege[(1:5)]
   protegeFixed = protege[-(1:5)]
