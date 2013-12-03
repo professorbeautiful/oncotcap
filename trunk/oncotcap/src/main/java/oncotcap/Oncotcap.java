@@ -440,7 +440,8 @@ public class Oncotcap
 		}
 		else
 		{
-			tempPath = System.getProperty("java.io.tmpdir");
+			//tempPath = System.getProperty("java.io.tmpdir");
+			tempPath = "temp";
 			System.err.print("Temp directory set with java.io.tmpdir to ");
 		}
 		
