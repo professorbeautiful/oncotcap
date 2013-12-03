@@ -102,7 +102,7 @@ public class EventManager
 //				coll.collection_update((OncProcess) caller, evParams);
 				try{li.listenerMethod.invoke(li.listener, args);}
 				catch(IllegalAccessException e){System.out.println("Illegal access exception invoking " + eventName + " on " + li.listener);}
-				catch(InvocationTargetException e){System.out.println("Invocation target exception invoking " + eventName + " on " + li.listener);}
+				catch(InvocationTargetException e){System.out.println("Invocation target exception invoking " + eventName + " on " + li.listener); e.printStackTrace();}
 			}
 		}
 	}
