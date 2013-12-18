@@ -1,0 +1,18 @@
+.BrowserNodeText {
+	font-family: Sydnie;
+	font-size: 14px;
+	font-variant: small-caps;
+	color: #FFFF99;
+	background-color: #663333;
+}
+.parameterLink {
+	color: #0033CC;
+	italic;
+	strong;
+}
+.blueButton {
+	color: #0066FF;
+	font-family: Georgia, Times New Roman, Times, serif;
+	strong;
+	em;
+}

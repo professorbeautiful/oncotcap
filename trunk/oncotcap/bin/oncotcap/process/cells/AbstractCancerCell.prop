@@ -1,0 +1,3 @@
+#INITVAR VariableType VariableName
+
+INITVAR oncotcap.datalayer.persistible.parameter.DeclarePositive cellcount

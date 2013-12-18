@@ -1,0 +1,4 @@
+#INITVAR VariableType VariableName
+
+INITVAR oncotcap.datalayer.persistible.parameter.DeclareSwitchablePositive hazard
+INITIDENUM oncotcap.datalayer.persistible.parameter.DeclareEnum [] destLevels

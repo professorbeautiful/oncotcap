@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><!-- InstanceBegin template="/Templates/OncoTCap Window Help Template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Treatment Schedule Parameters</title>
+<!-- InstanceEndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- InstanceBeginEditable name="head" -->
+
+<!-- InstanceEndEditable -->
+<link href="../OncoTCap%20Styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFFFCC">
+
+
+<!-- InstanceBeginEditable name="PREAMBLE" --> 
+<h1>&nbsp;</h1>
+<!-- InstanceEndEditable --> 
+<!-- InstanceBeginEditable name="NAME-OF-WINDOW" --> 
+<h1>Treatment Schedule Parameters</h1>
+<!-- InstanceEndEditable -->
+<br>PURPOSE: <BR>
+<table width=100% border="1">
+  <tr> 
+    <td width=100 bgcolor="#FFCC00">&nbsp;</td>
+  <td>
+  <!-- InstanceBeginEditable name="PURPOSE" --> &nbsp;This parameter editor 
+      specifies a treatment schedule for administering treatments on a fixed set 
+      of days within a course, and repeating the course a fixed number of times, 
+      <!-- InstanceEndEditable --> 
+  </td>
+  </tr>
+</table>
+
+<BR>HOW TO USE THIS WINDOW:<BR>
+
+<table width=100% border="1">
+  <tr> 
+    <td width=100 bgcolor="#FFCC00">&nbsp;</td>
+    <td ><!-- InstanceBeginEditable name="HOW-TO-USE-ME" --> 
+      <p>A treatment-schedule parameter is a compound parameter consisting of 
+        three individual parameters:</p>
+      <ul>
+        <li>Day list , a string of numbers indicating the days of treatment administration 
+          within each course.</li>
+        <li>Duration, an integer number of days indication the duration of one 
+          course.</li>
+        <li>Courses, an integer number of courses to administer.</li>
+      </ul>
+      <p>A click on any one of these individual parameters will launch an &quot;editor&quot; 
+        window for inputting or changing any of the values for the individual 
+        parameters..</p>
+      <!-- InstanceEndEditable --> </td>
+  </tr>
+</table>
+
+<BR>TIPS:<BR>
+
+<table width=100% border="1">
+  <tr> 
+    <td width=100  bgcolor="#FFCC00">&nbsp;</td>
+    <td ><!-- InstanceBeginEditable name="TIPS" --> &nbsp;One can pass the information 
+      in this parameter into a Code Bundle, specifically into an Action for scheduling 
+      an Event, using the &quot;backquote&quot; mechanism. See <a href="../screens/Inheritance.html" title="Inheritance">Inheritance</a><!-- InstanceEndEditable --></td>
+  </tr>
+</table>
+
+<BR>
+  KNOWN BUGS & INCONVENIENCES:
+<table width=100% border="1">
+  <tr> 
+    <td width=100 bgcolor="#FFCC00">&nbsp;</td>
+    <td ><!-- InstanceBeginEditable name="KNOWN-BUGS-INCONVENIENCES" --> 
+      <p>&nbsp;This parameter can be used also for scheduling medical tests and 
+        other schedulable items, but then its name (and the word Courses) should 
+        be changed to reflect the more general use.</p>
+      <!-- InstanceEndEditable --></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+<!-- InstanceEnd --></html>

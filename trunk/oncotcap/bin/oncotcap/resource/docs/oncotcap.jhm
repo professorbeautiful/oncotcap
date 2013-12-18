@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE map
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN"
+         "http://java.sun.com/products/javahelp/map_1_0.dtd">
+
+<map version="1.0">
+	<mapID target="top" url="jhug.html" />
+	<mapID target="top.touch" url="jhug.html#touch" />
+	<mapID target="nothing"  url="nothing.html" />
+	<mapID target="README"  url="README.html" />
+	
+	<!-- IMAGES -->
+	<mapID target="exclam.bmp"  url="exclam.bmp" />
+	
+	<mapID target="running" url="../image/littleguy.gif" />
+
+	<mapID target="erth" url="image/erth-purple-32x32.gif" />
+		
+	<mapID target="triflow" url="image/triflow.jpg" />
+	<mapID target="filter-icon" url="image/filter-icon.jpg" />
+	<mapID target="erth" url="image/erth-purple16x16.gif" />
+	
+	<mapID target="toplevelfolder" url="images/toplevel.gif" />
+	<mapID target="tri-arrow" url="images/tricorn-icon.jpg" />
+	<mapID target="topic" url="images/topic.gif" />
+	<mapID target="tocspacer1" url="images/tocspacer1.gif" />
+	<mapID target="openbook" url="images/openbook.gif" />
+	<mapID target="knowledegcapture" url="images/knowledgecapture.jpg" />
+	<mapID target="instructionbuilding" url="images/toplevel.gif" />
+	<mapID target="modelbuilding" url="images/toplevel.gif" />
+
+	<mapID target="informationsource" url="images/informationsource-small.jpg" />	
+	<mapID target="knowledgenugget" url="images/knowledgenugget-small.jpg" />	
+	<mapID target="interpretation" url="images/interpretation-small.jpg" />	
+	<mapID target="edict" url="images/encoding-small.jpg" />
+	<mapID target="codebundle" url="images/codebundle-small.jpg" />
+	<mapID target="statementtemplate" url="images/statementtemplate-small.jpg" />
+	<mapID target="statementbundle" url="images/statementbundle-small.jpg" />
+	<mapID target="submodel" url="images/submodel-small.jpg" />
+	<mapID target="submodelgroup" url="images/submodelgroup-small.jpg" />
+	<mapID target="modelcontroller" url="images/modelcontroller-small.jpg" />
+
+	<!-- END IMAGES -->
+	
+	<!-- KNOWLEDGE CAPTURE -->
+	<mapID target="ArticlePanelWithPMIDPanel" url="screens/InformationSourcePanel.html" />	
+	<mapID target="QuoteNuggetPanel" url="screens/KnowledgeNuggetPanel.html" />	
+	<mapID target="EncodingPanel" url="screens/EdictPanel.html" />	
+	<mapID target="InterpretationPanel" url="screens/InterpretationPanel.html" />	
+	
+	<!-- END KNOWLEDGE CAPTURE -->
+	
+	<!-- CODE BUILDING -->
+	<mapID target="StatementBundleEditorPanel" url="screens/StatementBundleEditorPanel.html" />	
+	<mapID target="StatementTemplateEditorPanel" url="screens/StatementTemplateEditorPanel.html" />
+	<mapID target="ParameterEditors" url="screens/ParameterEditors.html" />
+	<mapID target="DeclareEnumPickerEditor" url="screens/CategoriesAndCharacteristics.html" />
+	<mapID target="SubsetParameterEditorPanel" url="screens/CategoriesAndCharacteristics.html" />
+	<mapID target="CategoryEditor" url="screens/CategoriesAndCharacteristics.html" />
+	<mapID target="CategoriesAndCharacteristics" url="screens/CategoriesAndCharacteristics.html" />
+	<mapID target="ModifyCategoryEditor" url="screens/CategoriesAndCharacteristics.html" />
+	<mapID target="LevelListEditorPanel" url="screens/LevelListEditorPanel.html" />
+	<mapID target="AssignmentParameterEditor" url="screens/AssignmentParameterEditor.html" />
+	<mapID target="InstantiationParameterEditor" url="screens/InstantiationParameterEditor.html" />
+	<mapID target="SimpleParameters" url="overview/simple-parameters.html" />
+	<mapID target="DeclareCategory" url="screens/ParameterEditors.html" />
+	<mapID target="TcapString" url="screens/ParameterEditors.html" />
+	<mapID target="CodeBundleEditorPanel" url="screens/CodeBundleEditorPanel.html" />	
+	<mapID target="TreatmentSchedule" url="overview/treatment-schedule-parameters.html" />	
+	
+	
+	<!-- END CODE BUILDING -->
+	
+	<!-- MODEL BUILDING -->
+	<mapID target="ApplicationBuilding" url="overview/applicationbuilding.html" />	
+	<mapID target="SubModelPanel" url="screens/SubModelPanel.html" />	
+	<mapID target="SubModelGroupPanel" url="screens/SubModelGroupPanel.html" />	
+	<mapID target="ModelControllerPanel" url="screens/ModelControllerPanel.html" />	
+	<mapID target="ConfigurationPanel" url="screens/ConfigurationPanel.html" />	
+	<mapID target="ModelReviewTable" url="screens/ModelReviewTable.html" />	
+	<!-- END MODEL BUILDING -->
+	
+	<!-- MODEL RUNNING -->
+	<mapID target="DefaultInputEditor" url="overview/running-a-model.html" />	
+	<mapID target="SinglePatient" url="screens/RunningModel.html" />	
+	<mapID target="OutputFrame" url="nothing.html" />	
+	<!-- END MODEL RUNNING -->
+
+	
+	<!-- BROWSER -->
+	<mapID target="UsingTheBrowserTree" url="screens/Using the browser tree.html" />
+	<mapID target="OncBrowser" url="screens/OncBrowser.html" />
+	<mapID target="OntologyTree" url="screens/OncBrowser.html" />
+	<mapID target="TriFlowController" url="screens/tri-flow controller.html" />
+	<mapID target="FilterEditorPanel" url="screens/FilterEditorPanel.html" />
+	<!-- END BROWSER -->
+	
+	<!-- GENERAL CONCEPTS -->
+	<mapID target="Inheritance" url="screens/Inheritance.html" />
+	<mapID target="OverviewPurpose" url="overview/purpose.html" />
+	<mapID target="Heterogeneity" url="overview/heterogeneity.html" />
+	<mapID target="Integrating" url="overview/integrating.html" />
+	<mapID target="KnowledgeCapture" url="overview/knowledgecapture.html" />
+	<mapID target="InstructionMapping" url="overview/instructionmapping.html" />
+	<mapID target="ApplicationBuilding" url="overview/applicationbuilding.html" />
+	<mapID target="RunningModel" url="overview/running-a-model.html" />
+	<!-- END GENERAL CONCEPTS -->
+	
+	<!-- TUTORIALS -->
+	<mapID target="ChromosomalEvolutionModel" url="tutorial/Chromosomal_evolution_model.html" />
+	<!-- END TUTORIALS -->
+	
+
+
+<!-- Index IDs -->
+
+</map>

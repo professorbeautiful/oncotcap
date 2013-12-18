@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><!-- InstanceBegin template="/Templates/OncoTCap Overview Template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Untitled Document</title>
+<!-- InstanceEndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- InstanceBeginEditable name="head" -->
+
+<!-- InstanceEndEditable -->
+<link href="../OncoTCap%20Styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#cFcFCC">
+
+<!-- InstanceBeginEditable name="OverviewHeader" -->
+<h1>Inheritance of parameter values</h1>
+<!-- InstanceEndEditable --> 
+
+<hr>
+<!-- InstanceBeginEditable name="OverviewBody" --> 
+<p>A <font color="#CC0000"><strong>key idea</strong></font> in OncoTCap is that 
+  models should be described using words, that is, in the textual <strong><em>model-driving 
+  statement</em></strong> contained in a Statement Template. <br>
+  It should be easy to judge whether a model-driving statement<br>
+  &nbsp;&nbsp;&nbsp;1 accurately states the intention (looking &quot;upstream&quot; 
+  at the Edict), and<br>
+  &nbsp;&nbsp;&nbsp;2 is implemented faithfully (looking &quot;downstream&quot; 
+  at the supporting instruction-providers).</p>
+<p>To make this efficient, statements must be re-usable.<br>
+  This is accomplished by two techniques:<br>
+  &nbsp;&nbsp;&nbsp;1 The value of each parameter, assigned in the Statement Bundle 
+  by the author or the end-user, is passed &quot;downstream&quot; to the supporting 
+  instruction-providers. The Instruction-providers may include the name of the 
+  parameter surrounded by back-quotes. When it comes time to run the model, this 
+  parameter in back-quotes is replaced by looking to the &quot;upstream&quot; 
+  Statement Bundle. Each model computational engine will have a translator to 
+  read the contents of the parameter value and write out the engine-specific code. 
+  In the simulator which is native to (included in) OncoTCap, that translator 
+  is the <font face="Courier New, Courier, mono">JavaCodeProvider</font> class.</p>
+<p>&nbsp;&nbsp;&nbsp;2 Statement Templates are implemented ultimately by Code 
+  bundles, but they can also be implemented by Statement Bundles that in turn 
+  are based upon other Statement Templates. This allows the packaging of multiple 
+  simple ideas into more complex ones.</p>
+<p>&nbsp;</p>
+<!-- InstanceEndEditable --> 
+
+</body>
+<!-- InstanceEnd --></html>
